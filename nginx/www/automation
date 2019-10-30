@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<link rel="canonical" href="http://wtfismyip.com/privacy">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<title>wtfismyip.com Automation Policy</title>
+    <style type="text/css" media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background: #fff;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:link,
+      a:visited {
+        color: #f30;
+      }
+      a:hover {
+        color: #f90;
+      }
+      #tor {
+        color: #f30;
+      }
+      #main {
+        position: relative;
+        top: 20px;
+        width: 600px;
+      }
+      #main h1 {
+        font-size: 40px;
+        font-weight: normal;
+        line-height: 40px;
+        padding: 20px 0 20px 0;
+        letter-spacing: -1px;
+      }
+      #main p {
+        margin: 20px;
+        font-size: 15px;
+        line-height: 20px;
+      }
+      #main ul {
+        padding: 0 0 0 20px;
+      }
+      #main li {
+        margin: 20px;
+        list-style-type: square;
+        font-size: 15px;
+        line-height: 20px;
+      }
+      #sidebar {
+        position: relative;
+        top: 40px;
+        left: 20px;
+        width: 540px;
+        padding: 20px 20px 0 0;
+        border-top: 1px solid #ccc;
+        text-align: center;
+      }
+      #sidebar h2 {
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #333;
+        letter-spacing: 1px;
+        line-height: 20px;
+      }
+      #sidebar ul {
+        list-style-type: none;
+        margin: 20px 0;
+      }
+      #sidebar li {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+
+<center><p><h2>Automation Policy</h2></center> <p> 
+
+You are welcome to use any of the wtfismyip.com services in your noncommercial
+automated applications. All we ask is that you limit usage to 1 request per minute per IP
+address. Any usage in excess of this may lead to a temporary block. This free service is
+provided with no guarantees as to availabliity or reliability. Commercial use is
+expressely prohibited. 
+
+<p>We don't make any money from running this fucking website, since we don't allow ads or trackers.
+
+<p>Questions or concerns? Reach us on <a href="https://twitter.com/wtfismyip">Twitter,</a><a href="tel://+14087154900"> Signal</a>, or <a href="wire://wtfismyip">Wire</a>.
+
+</body>
+</html>
+
