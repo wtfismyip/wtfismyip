@@ -103,7 +103,7 @@ server {
 	}
 
 	location / {
-		try_files $uri $uri/ @backend;
+		try_files $uri @backend;
 	}
 
         location @backend {
