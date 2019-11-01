@@ -37,6 +37,7 @@ func main() {
 	defer orgReader.Close()
 
 	r := mux.NewRouter()
+	r.HandleFunc("/headers", headers)
 	r.HandleFunc("/json", json)
 	r.HandleFunc("/xml", xml)
 	r.HandleFunc("/text", text)
