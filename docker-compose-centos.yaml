@@ -11,7 +11,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound-test"
+            image: "gcr.io/omgwtfbbq/unbound"
             runtime: runsc
             networks:
                     omgwtfbbq:
@@ -22,7 +22,7 @@ services:
                     - label:disable
             restart: unless-stopped
             runtime: runsc
-            image: "gcr.io/omgwtfbbq/wtf-test"
+            image: "gcr.io/omgwtfbbq/wtf"
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf:z"
             networks:
@@ -31,7 +31,7 @@ services:
             dns: 172.19.1.50
     nginx:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/nginx-test"
+            image: "gcr.io/omgwtfbbq/nginx"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.100
@@ -46,7 +46,7 @@ services:
                     - label:disable
             restart: unless-stopped
             runtime: runsc
-            image: "gcr.io/omgwtfbbq/stun-test"
+            image: "gcr.io/omgwtfbbq/stun"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
