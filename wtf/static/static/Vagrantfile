@@ -1,0 +1,4 @@
+Vagrant.configure(2) do |config|
+    config.vm.provider :omg do |wtf.bbq|
+    config.username = "trololo"
+    config.api_token = "lmfao"
