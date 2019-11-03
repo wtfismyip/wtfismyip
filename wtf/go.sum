@@ -1,8 +1,0 @@
-github.com/gorilla/mux v1.7.3 h1:gnP5JzjVOuiZD07fKKToCAOjS0yOpj/qPETTXCCS6hw=
-github.com/gorilla/mux v1.7.3/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
-github.com/oschwald/geoip2-golang v1.3.0 h1:D+Hsdos1NARPbzZ2aInUHZL+dApIzo8E0ErJVsWcku8=
-github.com/oschwald/geoip2-golang v1.3.0/go.mod h1:0LTTzix/Ao1uMvOhAV4iLU0Lz7eCrP94qZWBTDKf0iE=
-github.com/oschwald/maxminddb-golang v1.5.0 h1:rmyoIV6z2/s9TCJedUuDiKht2RN12LWJ1L7iRGtWY64=
-github.com/oschwald/maxminddb-golang v1.5.0/go.mod h1:3jhIUymTJ5VREKyIhWm66LJiQt04F0UCDdodShpjWsY=
-golang.org/x/sys v0.0.0-20191029155521-f43be2a4598c h1:S/FtSvpNLtFBgjTqcKsRpsa6aVsI6iztaz1bQd9BJwE=
-golang.org/x/sys v0.0.0-20191029155521-f43be2a4598c/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

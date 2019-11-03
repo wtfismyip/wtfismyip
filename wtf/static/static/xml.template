@@ -1,0 +1,8 @@
+<wtf>
+   <your-fucking-ip-address>{{.Address}}</your-fucking-ip-address>
+   <your-fucking-location>{{.Geo}}</your-fucking-location>
+   <your-fucking-hostname>{{.Hostname}}</your-fucking-hostname>
+   <your-fucking-isp>{{.ISP}}</your-fucking-isp>
+   <your-fucking-tor-exit>false</your-fucking-tor-exit>
+   <your-fucking-country-code>{{.CountryCode}}</your-fucking-country-code>
+</wtf>
