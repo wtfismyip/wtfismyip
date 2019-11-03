@@ -27,8 +27,8 @@ services:
                             ipv4_address: 172.19.1.200
             dns: 172.19.1.50
             ports:
-                    - "80:80"
-                    - "443:443"
+                    - "80:10080"
+                    - "443:10443"
     stun:
             restart: unless-stopped
             runtime: runsc

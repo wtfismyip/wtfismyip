@@ -13,12 +13,11 @@ FROM alpine:latest
 
 WORKDIR /app
 
-RUN mkdir -p /usr/local/wtf/GeoIP
+RUN mkdir -p /usr/local/wtf/GeoIP && addgroup -S appuser && adduser -S -G appuser appuser
 COPY static/GeoIP /usr/local/wtf/GeoIP
 COPY static/static /usr/local/wtf/static
-RUN addgroup -S appuser && adduser -S -G appuser appuser
-USER appuser
 
 COPY --from=builder /app/wtf .
 
+USER appuser
 CMD [ "./wtf" ]

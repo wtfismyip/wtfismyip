@@ -106,7 +106,7 @@ func main() {
 	srvHTTPS := &http.Server{
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
-		Addr:         ":443",
+		Addr:         ":10443",
 		Handler:      r,
 		TLSConfig:    cfg,
 	}
@@ -115,7 +115,7 @@ func main() {
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
 		Handler:      r,
-		Addr:         ":80",
+		Addr:         ":10080",
 	}
 
 	srvHTTP.SetKeepAlivesEnabled(false)
