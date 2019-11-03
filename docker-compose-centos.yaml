@@ -8,6 +8,8 @@ services:
             volumes:
                     - "/var/run/docker.sock:/var/run/docker.sock:ro"                                                           
     unbound:
+            security_opt:
+                    - label:disable
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/unbound"
             runtime: runsc
@@ -17,10 +19,10 @@ services:
             dns: 172.19.1.50
     wtf:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:1a"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:1c"
             volumes:
-                - "/docker/resolv.conf:/etc/resolv.conf"
-                - "/docker/certs:/docker/certs"
+                - "/docker/resolv.conf:/etc/resolv.conf:z"
+                - "/docker/certs:/docker/certs:z"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -29,6 +31,8 @@ services:
                     - "80:10080"
                     - "443:10443"
     stun:
+            security_opt:
+                    - label:disable
             restart: unless-stopped
             runtime: runsc
             image: "gcr.io/omgwtfbbq/stun"
@@ -36,7 +40,7 @@ services:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
             volumes:
-                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf"
+                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf:z"
             ports:
                     - "3478:3478/udp"
 

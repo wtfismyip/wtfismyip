@@ -80,6 +80,8 @@ func main() {
 	r.HandleFunc("/", miscHandle).Methods("PUT")
 	r.HandleFunc("/", miscHandle).Methods("DELETE")
 	r.HandleFunc("/", miscHandle).Methods("TRACE")
+	r.HandleFunc("/admin", adminHandle)
+	r.HandleFunc("/administrator", adminHandle)
 	r.HandleFunc("/{foo:.*log$}", miscHandle)
 	r.HandleFunc("/{foo:.*bak$}", miscHandle)
 	r.HandleFunc("/{foo:.*swp$}", miscHandle)
@@ -135,7 +137,6 @@ func main() {
 
 	srvHTTP.SetKeepAlivesEnabled(false)
 	go srvHTTP.ListenAndServe()
-
 	srvHTTPS.ListenAndServeTLS("/docker/certs/wtf.ecc.cert.pem", "/docker/certs/wtf.ecc.key.pem")
 }
 
@@ -221,47 +222,57 @@ func miscHandle(w http.ResponseWriter, r *http.Request) {
 }
 
 func sqlHandle(w http.ResponseWriter, r *http.Request) {
-        contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.sql")
-        if err != nil {
-                w.WriteHeader(http.StatusNotFound)
-                fmt.Fprintf(w, "No such fucking page!")
-        }
-        w.Header().Set("Content-Type", "text/plain")
-        w.Write(contents)
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.sql")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write(contents)
 }
 
 func zipHandle(w http.ResponseWriter, r *http.Request) {
-        contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.zip")
-        if err != nil {
-                w.WriteHeader(http.StatusNotFound)
-                fmt.Fprintf(w, "No such fucking page!")
-        }
-        w.Header().Set("Content-Type", "application/zip")
-        w.Write(contents)
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.zip")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "application/zip")
+	w.Write(contents)
 }
 
 func gzHandle(w http.ResponseWriter, r *http.Request) {
-        contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.gz")
-        if err != nil {
-                w.WriteHeader(http.StatusNotFound)
-                fmt.Fprintf(w, "No such fucking page!")
-        }
-        w.Header().Set("Content-Type", "application/gzip")
-        w.Write(contents)
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.tar.gz")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "application/gzip")
+	w.Write(contents)
 }
 
 func iniHandle(w http.ResponseWriter, r *http.Request) {
-        contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.ini")
-        if err != nil {
-                w.WriteHeader(http.StatusNotFound)
-                fmt.Fprintf(w, "No such fucking page!")
-        }
-        w.Header().Set("Content-Type", "text/plain")
-        w.Write(contents)
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.ini")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write(contents)
+}
+
+func adminHandle(w http.ResponseWriter, r *http.Request) {
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/admin.html")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "text/html")
+	w.Write(contents)
 }
 
 func trollHandle(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "text/html")
+	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprintf(w, "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=https://www.youtube.com/watch?v=sTSA_sWGM44\" /></head><body><p>TROLOLOLOL!</p></body></html>")
 }
 
@@ -332,11 +343,8 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 func headers(w http.ResponseWriter, r *http.Request) {
 	var response string
 	for name, val := range r.Header {
-		if (name != "X-Real-Ip") && (name != "Connection") {
-			response += name + ": " + val[0] + "\n"
-		}
+		response += name + ": " + val[0] + "\n"
 	}
-	w.Header().Set("X-Hire-Me", "clint@wtfismyip.com")
 	w.Header().Set("Content-Type", "text/plain")
 	fmt.Fprintf(w, response)
 }
