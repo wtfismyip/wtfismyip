@@ -1,0 +1,10 @@
+{
+    "type": "sftp",
+    "host": "omg.wtf.bbq",
+    "username": "lmfao",
+    "password": "NiceTry!",
+    "port": 22,
+    "remotePath": "/trololo",
+    "uploadOnSave": false
+}
+

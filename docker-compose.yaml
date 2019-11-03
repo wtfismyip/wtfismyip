@@ -1,0 +1,45 @@
+version: '2.3'
+services:
+    ipv6nat:
+            restart: unless-stopped
+            image: "robbertkl/ipv6nat"
+            privileged: true
+            network_mode: "host"
+            volumes:
+                    - "/var/run/docker.sock:/var/run/docker.sock:ro"                                                           
+    unbound:
+            restart: unless-stopped
+            image: "gcr.io/omgwtfbbq/unbound"
+            runtime: runsc
+            networks:
+                    omgwtfbbq:
+                            ipv4_address: 172.19.1.50
+            dns: 172.19.1.50
+    wtf:
+            restart: unless-stopped
+            image: "gcr.io/omgwtfbbq/wtf-standalone:1a"
+            volumes:
+                - "/docker/resolv.conf:/etc/resolv.conf"
+                - "/docker/certs:/docker/certs"
+            networks:
+                    omgwtfbbq:
+                            ipv4_address: 172.19.1.200
+            dns: 172.19.1.50
+            ports:
+                    - "80:10080"
+                    - "443:10443"
+    stun:
+            restart: unless-stopped
+            runtime: runsc
+            image: "gcr.io/omgwtfbbq/stun"
+            networks:
+                    omgwtfbbq:
+                            ipv4_address: 172.19.1.150
+            volumes:
+                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf"
+            ports:
+                    - "3478:3478/udp"
+
+networks:
+        omgwtfbbq:
+                external: true
