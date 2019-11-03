@@ -189,6 +189,7 @@ func custom404(w http.ResponseWriter, r *http.Request) {
 	path := filepath.Join("/usr/local/wtf/static", filepath.Clean(r.URL.Path))
 	contents, err := ioutil.ReadFile(path)
 	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprintf(w, "No such fucking page!")
 	}
 	w.Write(contents)
