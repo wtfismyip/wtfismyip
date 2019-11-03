@@ -8,8 +8,6 @@ services:
             volumes:
                     - "/var/run/docker.sock:/var/run/docker.sock:ro"                                                           
     unbound:
-            security_opt:
-                    - label:disable
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/unbound"
             runtime: runsc
@@ -18,32 +16,19 @@ services:
                             ipv4_address: 172.19.1.50
             dns: 172.19.1.50
     wtf:
-            security_opt:
-                    - label:disable
             restart: unless-stopped
-            runtime: runsc
-            image: "gcr.io/omgwtfbbq/wtf"
+            image: "gcr.io/omgwtfbbq/wtf-standalone"
             volumes:
-                    - "/docker/resolv.conf:/etc/resolv.conf:z"
+                - "/docker/resolv.conf:/etc/resolv.conf"
+                - "/docker/certs:/docker/certs"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
             dns: 172.19.1.50
-    nginx:
-            restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/nginx"
-            networks:
-                    omgwtfbbq:
-                            ipv4_address: 172.19.1.100
-            dns: 1.1.1.1
-            volumes:
-                    - "/docker/certs:/etc/nginx/certs:z"
             ports:
-                    - "80:80"
-                    - "443:443"
+                    - "80:10080"
+                    - "443:10443"
     stun:
-            security_opt:
-                    - label:disable
             restart: unless-stopped
             runtime: runsc
             image: "gcr.io/omgwtfbbq/stun"
@@ -51,10 +36,9 @@ services:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
             volumes:
-                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf:z"
+                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf"
             ports:
                     - "3478:3478/udp"
-
 
 networks:
         omgwtfbbq:
