@@ -15,6 +15,7 @@ WORKDIR /app
 
 RUN mkdir -p /usr/local/wtf/GeoIP
 COPY static/GeoIP /usr/local/wtf/GeoIP
+COPY static/static /usr/local/wtf/static
 RUN addgroup -S appuser && adduser -S -G appuser appuser
 USER appuser
 
