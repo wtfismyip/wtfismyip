@@ -143,21 +143,26 @@ func main() {
 func geoData(ip string) geoText {
 	var details string
 	var state string
+
 	address := net.ParseIP(ip)
+	isp, err := orgReader.ISP(address)
+	if err != nil {
+		log.Println(err)
+	}
+
 	record, err := cityReader.City(address)
 	if err != nil {
 		log.Println(err)
 	}
-	foo, err := orgReader.ISP(address)
-	if err != nil {
-		log.Println(err)
-	}
+
 	if len(record.Subdivisions) > 0 {
 		state = record.Subdivisions[0].IsoCode
 	}
+
 	city, isCityPresent := record.City.Names["en"]
 	country, _ := record.Country.Names["en"]
 	code := record.Country.IsoCode
+
 	if isCityPresent {
 		if len(state) > 0 {
 			details = city + ", " + state + ", " + country
@@ -171,11 +176,12 @@ func geoData(ip string) geoText {
 			details = "Unknown"
 		}
 	}
+
 	if len(code) == 0 {
 		code = "Unknown"
 	}
 
-	return geoText{foo.ISP, details, code}
+	return geoText{isp.ISP, details, code}
 }
 
 func reverseDNS(ip string) string {
