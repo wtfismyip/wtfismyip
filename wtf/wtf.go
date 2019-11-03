@@ -343,6 +343,7 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com; script-src ipv4.wtfismyip.com wtfismyip.com; style-src 'unsafe-inline'")
 	w.Header().Set("X-DNS-Prefetch-Control", "off")
+	w.Header().Set("Referrer-Policy", "no-referrer")
 	templateHTML.Execute(w, resp)
 }
 

@@ -93,6 +93,9 @@ a:link,a:visited,#tor{color:#f30}
             <p class="blah"><a href="/privacy">Privacy Policy</a></p>
          </li>
          <li>
+            <p class="blah"><a href="https://github.com/wtfismyip/wtfismyip">GitHub</a></p>
+         </li>
+         <li>
             <p class="blah"><a href="/donate">Donate</a></p>
          </li>
       </ul>
