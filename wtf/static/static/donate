@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<link rel="canonical" href="http://wtfismyip.com/privacy">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<title>Fucking Donations</title>
+    <style type="text/css" media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background: #fff;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:link,
+      a:visited {
+        color: #f30;
+      }
+      a:hover {
+        color: #f90;
+      }
+      #tor {
+        color: #f30;
+      }
+      #main {
+        position: relative;
+        top: 20px;
+        width: 600px;
+      }
+      #main h1 {
+        font-size: 40px;
+        font-weight: normal;
+        line-height: 40px;
+        padding: 20px 0 20px 0;
+        letter-spacing: -1px;
+      }
+      #main p {
+        margin: 20px;
+        font-size: 15px;
+        line-height: 20px;
+      }
+      #main ul {
+        padding: 0 0 0 20px;
+      }
+      #main li {
+        margin: 20px;
+        list-style-type: square;
+        font-size: 15px;
+        line-height: 20px;
+      }
+      #sidebar {
+        position: relative;
+        top: 40px;
+        left: 20px;
+        width: 540px;
+        padding: 20px 20px 0 0;
+        border-top: 1px solid #ccc;
+        text-align: center;
+      }
+      #sidebar h2 {
+        text-transform: uppercase;
+        font-size: 13px;
+        color: #333;
+        letter-spacing: 1px;
+        line-height: 20px;
+      }
+      #sidebar ul {
+        list-style-type: none;
+        margin: 20px 0;
+      }
+      #sidebar li {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+
+<p>We don't make any money from running this fucking website, since we don't allow ads or trackers. We serve over 1 million requests an hour. Supporting this service isn't free. Please consider a donation.
+
+
+<p><b>Paypal:</b>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_donations" />
+	<input type="hidden" name="business" value="SJD7ENZJ5B63G" />
+	<input type="hidden" name="currency_code" value="USD" />
+	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+	<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+
+	<p><b>Bitcoin</b>: 1WTFY6zriSe2c1uSXeRiQ8HfoZXjfnhrM
+
+</body>
+</html>
