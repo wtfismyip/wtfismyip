@@ -39,7 +39,9 @@ a:link,a:visited,#tor{color:#f30}
          <p>
          <h2>Your host name is:</h2>
       </center>
-      <center>{{.Hostname}}</center>
+      <center>
+         <p>{{.Hostname}}
+      </center>
 {{if .IPv6 }}<center>
          <p>
          <h2>Geographic location of your IPv6 address:</h2>
