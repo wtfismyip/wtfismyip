@@ -289,6 +289,8 @@ func json(w http.ResponseWriter, r *http.Request) {
 	isIPv6 := strings.Contains(add, ":")
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
 	templateJSON.Execute(w, resp)
 }
 
