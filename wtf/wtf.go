@@ -71,6 +71,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/headers", headers)
+	r.HandleFunc("/test", test)
 	r.HandleFunc("/json", json)
 	r.HandleFunc("/xml", xml)
 	r.HandleFunc("/text", text)
@@ -299,6 +300,11 @@ func text(w http.ResponseWriter, r *http.Request) {
 	response := add + "\n"
 	w.Header().Set("Content-Type", "text/plain")
 	fmt.Fprintf(w, response)
+}
+
+func test(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+	fmt.Fprintf(w, "Yes, the website is fucking running")
 }
 
 func jsHandle(w http.ResponseWriter, r *http.Request) {
