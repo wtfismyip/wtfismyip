@@ -7,6 +7,7 @@ services:
             network_mode: "host"
             volumes:
                     - "/var/run/docker.sock:/var/run/docker.sock:ro"                                                           
+                    - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/unbound"
