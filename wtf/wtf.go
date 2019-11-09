@@ -3,8 +3,6 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/oschwald/geoip2-golang"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -13,6 +11,9 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/gorilla/mux"
+	"github.com/oschwald/geoip2-golang"
 )
 
 var cityReader *geoip2.Reader
@@ -136,7 +137,6 @@ func main() {
 		Addr:         ":10080",
 	}
 
-	srvHTTP.SetKeepAlivesEnabled(false)
 	go srvHTTP.ListenAndServe()
 	srvHTTPS.ListenAndServeTLS("/docker/certs/wtf.ecc.cert.pem", "/docker/certs/wtf.ecc.key.pem")
 }
@@ -304,7 +304,7 @@ func text(w http.ResponseWriter, r *http.Request) {
 
 func test(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprintf(w, "Yes, the website is fucking running")
+	fmt.Fprintf(w, "Yes, the website is fucking running\n")
 }
 
 func jsHandle(w http.ResponseWriter, r *http.Request) {
@@ -352,6 +352,8 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com; script-src ipv4.wtfismyip.com wtfismyip.com; style-src 'unsafe-inline'")
 	w.Header().Set("X-DNS-Prefetch-Control", "off")
 	w.Header().Set("Referrer-Policy", "no-referrer")
+	w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
+	w.Header().Set("X-Commentary", "I really set most of these headers to get an A at securityheaders.io. Yes, I understand that most of these are completely unnecessary for this fucking website.")
 	templateHTML.Execute(w, resp)
 }
 
