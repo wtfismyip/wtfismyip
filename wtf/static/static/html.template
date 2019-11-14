@@ -65,6 +65,10 @@ a:link,a:visited,#tor{color:#f30}
          <center>
             <p>{{.Geo}}
          </center>
+   </div>
+   <div id="local"></div>
+   <div id="main">
+      <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
          <center>
             <p>
             <h2>Your ISP:</h2>
