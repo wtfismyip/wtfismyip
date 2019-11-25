@@ -66,10 +66,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	r := mux.NewRouter()
 	r.HandleFunc("/headers", headers)
 	r.HandleFunc("/test", test)
