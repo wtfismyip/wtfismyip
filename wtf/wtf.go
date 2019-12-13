@@ -1,7 +1,6 @@
 package main
 
 import (
-	"crypto/tls"
 	"fmt"
 	"html/template"
 	"io/ioutil"
@@ -12,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/mholt/certmagic"
 	"github.com/gorilla/mux"
 	"github.com/oschwald/geoip2-golang"
 )
@@ -93,37 +93,17 @@ func main() {
 	r.HandleFunc("/{foo:.*aspx$}", trollHandle)
 	r.NotFoundHandler = http.HandlerFunc(custom404)
 
-	cfg := &tls.Config{
-		MinVersion:               tls.VersionTLS10,
-		PreferServerCipherSuites: true,
-		CipherSuites: []uint16{
-			tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
-			tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
-			tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
-			tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
-			tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,
-			tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,
-			tls.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,
-			tls.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,
-			tls.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,
-			tls.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,
-			tls.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
-			tls.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,
-			tls.TLS_RSA_WITH_AES_128_GCM_SHA256,
-			tls.TLS_RSA_WITH_AES_256_GCM_SHA384,
-			tls.TLS_RSA_WITH_AES_128_CBC_SHA256,
-			tls.TLS_RSA_WITH_AES_128_CBC_SHA,
-			tls.TLS_RSA_WITH_AES_256_CBC_SHA,
-			tls.TLS_RSA_WITH_3DES_EDE_CBC_SHA,
-		},
-	}
+	config := certmagic.NewDefault()
+	tags := []string{}
+	config.CacheUnmanagedCertificatePEMFile("/docker/certs/wtf.ecc.cert.pem", "/docker/certs/wtf.ecc.key.pem",tags)
+	tlsConfig := config.TLSConfig()
 
 	srvHTTPS := &http.Server{
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
 		Addr:         ":10443",
 		Handler:      r,
-		TLSConfig:    cfg,
+		TLSConfig:    tlsConfig,
 	}
 
 	srvHTTP := &http.Server{
@@ -134,7 +114,7 @@ func main() {
 	}
 
 	go srvHTTP.ListenAndServe()
-	srvHTTPS.ListenAndServeTLS("/docker/certs/wtf.ecc.cert.pem", "/docker/certs/wtf.ecc.key.pem")
+	srvHTTPS.ListenAndServeTLS("","")
 }
 
 func geoData(ip string) geoText {
