@@ -18,7 +18,7 @@ services:
             dns: 172.19.1.50
     wtf:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:1007"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:1009"
             volumes:
                 - "/docker/resolv.conf:/etc/resolv.conf"
                 - "/docker/certs:/docker/certs"

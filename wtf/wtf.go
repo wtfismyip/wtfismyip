@@ -67,6 +67,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
+	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.HandleFunc("/headers", headers)
 	r.HandleFunc("/test", test)
 	r.HandleFunc("/json", json)
@@ -340,6 +341,11 @@ func headers(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "text/plain")
 	fmt.Fprintf(w, response)
+}
+
+func ipv5Handler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+        fmt.Fprintf(w, "No such fucking protocol")
 }
 
 func getAddress(r *http.Request) string {
