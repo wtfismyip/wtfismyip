@@ -78,7 +78,7 @@ a:link,a:visited,#tor{color:#f30}
          </center>
 {{end}}<br><br>
       <center>
-         <H3><a href="/headers">What fucking headers are my browser sending?</a></H3>
+         <H3><a href="/headers">What fucking headers is my browser sending?</a></H3>
       </center>
       <center>
          <p>
