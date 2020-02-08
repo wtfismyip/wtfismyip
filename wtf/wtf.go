@@ -205,7 +205,7 @@ func js2Handle(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(contents)
-+}
+}
 
 func miscHandle(w http.ResponseWriter, r *http.Request) {
 	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.log")
