@@ -68,12 +68,14 @@ func main() {
 
 	r := mux.NewRouter()
 	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
+	r.Host("ipv7.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.HandleFunc("/headers", headers)
 	r.HandleFunc("/test", test)
 	r.HandleFunc("/json", json)
 	r.HandleFunc("/xml", xml)
 	r.HandleFunc("/text", text)
 	r.HandleFunc("/js", jsHandle)
+	r.HandleFunc("/js2", js2Handle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
 	r.HandleFunc("/", miscHandle).Methods("PUT")
@@ -194,6 +196,16 @@ func custom404(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Write(contents)
 }
+
+func js2Handle(w http.ResponseWriter, r *http.Request) {
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/js2")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(contents)
++}
 
 func miscHandle(w http.ResponseWriter, r *http.Request) {
 	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.log")
