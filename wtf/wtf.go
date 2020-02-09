@@ -329,21 +329,25 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Header().Set("X-Hire-Me", "clint@wtfismyip.com")
-	w.Header().Set("X-Frame-Options", "DENY")
-	w.Header().Set("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
-	w.Header().Set("Pragma", "no-cache")
-	w.Header().Set("Expires", "0")
-	w.Header().Set("X-OMGWTF", "BBQ")
-	w.Header().Set("X-XSS-Protection", "1; mode=block")
-	w.Header().Set("X-Content-Type-Options", "nosniff")
-	w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com; script-src ipv4.wtfismyip.com wtfismyip.com; style-src 'unsafe-inline'")
-	w.Header().Set("X-DNS-Prefetch-Control", "off")
-	w.Header().Set("Referrer-Policy", "no-referrer")
-	w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
-	w.Header().Set("X-Commentary", "I really set most of these headers to get an A at securityheaders.io. Yes, I understand that most of these are completely unnecessary for this fucking website.")
-	templateHTML.Execute(w, resp)
+	if r.URL.Scheme == "http" {
+		http.Redirect(w, r, "https://wtfismyip.com/", 301)
+	} else {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("X-Hire-Me", "clint@wtfismyip.com")
+		w.Header().Set("X-Frame-Options", "DENY")
+		w.Header().Set("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+		w.Header().Set("Pragma", "no-cache")
+		w.Header().Set("Expires", "0")
+		w.Header().Set("X-OMGWTF", "BBQ")
+		w.Header().Set("X-XSS-Protection", "1; mode=block")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com; script-src ipv4.wtfismyip.com wtfismyip.com; style-src 'unsafe-inline'")
+		w.Header().Set("X-DNS-Prefetch-Control", "off")
+		w.Header().Set("Referrer-Policy", "no-referrer")
+		w.Header().Set("X-Commentary", "I really set most of these headers to get an A at securityheaders.io. Yes, I understand that most of these are completely unnecessary for this fucking website.")
+		w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
+		templateHTML.Execute(w, resp)
+	}
 }
 
 func headers(w http.ResponseWriter, r *http.Request) {
