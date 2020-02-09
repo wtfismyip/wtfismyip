@@ -329,7 +329,7 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
-	if r.URL.Scheme == "http" {
+	if r.TLS == nil {
 		http.Redirect(w, r, "https://wtfismyip.com/", 301)
 	} else {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
