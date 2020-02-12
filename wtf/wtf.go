@@ -288,6 +288,8 @@ func text(w http.ResponseWriter, r *http.Request) {
 	add := getAddress(r)
 	response := add + "\n"
 	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
 	fmt.Fprintf(w, response)
 }
 
