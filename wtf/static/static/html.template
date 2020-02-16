@@ -37,14 +37,14 @@ a:link,a:visited,#tor{color:#f30}
       </center>
       <center>
          <p>
-         <h2>Your host name is:</h2>
+         <h2>Your fucking host name is:</h2>
       </center>
       <center>
          <p>{{.Hostname}}
       </center>
 {{if .IPv6 }}<center>
          <p>
-         <h2>Geographic location of your IPv6 address:</h2>
+         <h2>Geographic location of your fucking IPv6 address:</h2>
       </center>
       <center>
          <p>{{.Geo}}
@@ -60,7 +60,7 @@ a:link,a:visited,#tor{color:#f30}
       <H3><a href="http://ipv4.wtfismyip.com">WTF is my IPv4 address!?</a></H3>
 {{else}}<center>
             <p>
-            <h2>Geographic location of your IP address:</h2>
+            <h2>Geographic location of your fucking IP address:</h2>
          </center>
          <center>
             <p>{{.Geo}}
@@ -71,7 +71,7 @@ a:link,a:visited,#tor{color:#f30}
       <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
          <center>
             <p>
-            <h2>Your ISP:</h2>
+            <h2>Your fucking ISP:</h2>
          </center>
          <center>
             <p>{{.ISP}}
