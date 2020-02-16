@@ -93,10 +93,10 @@ a:link,a:visited,#tor{color:#f30}
             <p class="blah"><a href="/why">Why wtfismyip.com?</a></p>
          </li>
          <li>
-            <p class="blah"><a href="/automation">Fucking Automation Policy</a></p>
+            <p class="blah"><a href="/automation">Automation Policy</a></p>
          </li>
          <li>
-            <p class="blah"><a href="/privacy">Fucking Privacy Policy</a></p>
+            <p class="blah"><a href="/privacy">Privacy Policy</a></p>
          </li>
          <li>
             <p class="blah"><a href="https://github.com/wtfismyip/wtfismyip">GitHub</a></p>
