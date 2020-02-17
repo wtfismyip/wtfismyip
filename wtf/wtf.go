@@ -310,7 +310,7 @@ func jsHandle(w http.ResponseWriter, r *http.Request) {
 		response := "ip='" + add + "';\n"
 		response += "hostname='" + hostname + "';\n"
 		response += "geolocation='" + geo.details + "';\n"
-		response += "document.write('<center><p><h2>Your fucking IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
+		response += "document.write('<center><p><h2>Your fucking IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your fucking IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your fucking IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
 		fmt.Fprintf(w, response)
 	}
 }
