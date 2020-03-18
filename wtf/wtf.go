@@ -21,6 +21,7 @@ var orgReader *geoip2.Reader
 var templateHTML *template.Template
 var templateJSON *template.Template
 var templateXML *template.Template
+var templateClean *template.Template
 
 type geoText struct {
 	org         string
@@ -65,6 +66,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	templateClean, err = template.ParseFiles("/usr/local/wtf/static/clean.template")
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	r := mux.NewRouter()
 	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
@@ -76,6 +81,7 @@ func main() {
 	r.HandleFunc("/text", text)
 	r.HandleFunc("/js", jsHandle)
 	r.HandleFunc("/js2", js2Handle)
+	r.HandleFunc("/clean", cleanHandle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
 	r.HandleFunc("/", miscHandle).Methods("PUT")
@@ -323,6 +329,15 @@ func xml(w http.ResponseWriter, r *http.Request) {
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
 	w.Header().Set("Content-Type", "application/xml")
 	templateXML.Execute(w, resp)
+}
+
+func cleanHandle(w http.ResponseWriter, r *http.Request) {
+	add := getAddress(r)
+	isIPv6 := strings.Contains(add, ":")
+	hostname := reverseDNS(add)
+	geo := geoData(add)
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
+	templateClean.Execute(w, resp)
 }
 
 func wtfHandle(w http.ResponseWriter, r *http.Request) {

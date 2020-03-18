@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><link rel="canonical" href="https://wtfismyip.com/"><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="msvalidate.01" content="2FAFC220324DC28BC604C74AF6A73153"><meta name="google-site-verification" content="H3adQkdAhp3ae5Oq6hSz9VsRKcGJPhYuAdbt_sW7qJo" /><meta name="keywords" content="wtf, my ip"><meta name="description" content="Tells you WTF your IP address is"><title>WTF is my IP?!?!??</title><style type="text/css" media="screen">
+*{font-family:sans-serif;margin:0;padding:0}
+body{background:#fff}
+a{text-decoration:none}
+a:hover{color:#f90}
+#merryfuckingchristmas{color:green}
+#main{position:relative;top:20px}
+#main h1{font-size:40px;font-weight:400;line-height:40px;letter-spacing:-1px;padding:20px 0}
+#main h2{font-size:24px;font-weight:700;letter-spacing:-1px;padding:2px 0}
+#main p{font-size:15px;line-height:20px;margin:0 0 20px}
+#main ul{padding:0 0 0 20px}
+#main li{list-style-type:square;font-size:15px;line-height:10px;margin:0 0 10px}
+#sidebar{position:relative;top:40px;border-top:1px solid #ccc;text-align:center;width:300px;margin-right:auto;margin-left:auto;padding:20px 20px 0 0}
+#sidebar h2{text-transform:uppercase;font-size:13px;color:#333;letter-spacing:1px;line-height:20px}
+#sidebar ul{list-style-type:none;margin:20px 0}
+#sidebar li{font-size:14px;line-height:20px}
+.blah{margin-bottom:3px}
+a:link,a:visited,#tor{color:#f30}
+.halb{padding:20px}
+#local{position:relative;top:20px}
+#local h1{font-size:40px;font-weight:400;line-height:40px;letter-spacing:-1px;padding:20px 0}
+#local h2{font-size:24px;font-weight:700;letter-spacing:-1px;padding:2px 0}
+#local p{font-size:15px;line-height:20px;margin:0 0 20px}
+#local ul{padding:0 0 0 20px}
+#local li{list-style-type:square;font-size:15px;line-height:10px;margin:0 0 10px}</style></script> </head><!--Belive me, you could not write shittier HTML than this even if you tried-->
+<body>
+   <div id="main">
+      <center>
+         <p>
+{{if .IPv6 }}<h2>Your IPv6 address is:</h2>
+{{else}}<h2>Your IP address is:</h2>
+{{end}}
+      </center>
+      <center>
+         <p>{{.Address}}
+      </center>
+      <center>
+         <p>
+         <h2>Your host name is:</h2>
+      </center>
+      <center>
+         <p>{{.Hostname}}
+      </center>
+{{if .IPv6 }}<center>
+         <p>
+         <h2>Geographic location of your IPv6 address:</h2>
+      </center>
+      <center>
+         <p>{{.Geo}}
+      </center>
+   </div>
+   <div id="local"></div>
+   <div id="main">
+      <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
+      <center>
+      <script type="text/javascript" src="https://ipv4.wtfismyip.com/js"></script><br>
+      <p>
+      <center>
+      <H3><a href="http://ipv4.wtfismyip.com">WTF is my IPv4 address!?</a></H3>
+{{else}}<center>
+            <p>
+            <h2>Geographic location of your IP address:</h2>
+         </center>
+         <center>
+            <p>{{.Geo}}
+         </center>
+   </div>
+   <div id="local"></div>
+   <div id="main">
+      <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
+         <center>
+            <p>
+            <h2>Your ISP:</h2>
+         </center>
+         <center>
+            <p>{{.ISP}}
+         </center>
+{{end}}<br><br>
+      <center>
+         <H3><a href="/headers">What headers is my browser sending?</a></H3>
+      </center>
+      <center>
+         <p>
+         <H3>Give me this stuff in <a href="/xml">XML</a>, <a href="/json">JSON</a> or <a href="/text">plain text!</a></H3>
+         <p>
+      </center>
+   </div>
+   <div id="sidebar">
+      <h2>Resources</h2>
+      <ul>
+         <li>
+            <p class="blah"><a href="/why">Why wtfismyip.com?</a></p>
+         </li>
+         <li>
+            <p class="blah"><a href="/automation">Our Automation Policy</a></p>
+         </li>
+         <li>
+            <p class="blah"><a href="/privacy">Our Privacy Policy</a></p>
+         </li>
+         <li>
+            <p class="blah"><a href="https://github.com/wtfismyip/wtfismyip">Our GitHub</a></p>
+         </li>
+         <li>
+            <p class="blah"><a href="/donate">Just Donate Already</a></p>
+         </li>
+      </ul>
+      <ul>
+         <li>Don't like being tracked? Download the <a href="https://www.torproject.org/download/">Tor Browser Bundle!</a>
+      </ul>
+      <p class="halb">
+   </div>
+   <p>
+   <p>
+</body>
+</html>
