@@ -52,9 +52,9 @@ a:link,a:visited,#tor{color:#f30}
    </div>
    <div id="local"></div>
    <div id="main">
-      <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
+      <script type="text/javascript" src="https://wtfismyip.com/js2clean"></script>
       <center>
-      <script type="text/javascript" src="https://ipv4.wtfismyip.com/js"></script><br>
+      <script type="text/javascript" src="https://ipv4.wtfismyip.com/jsclean"></script><br>
       <p>
       <center>
       <H3><a href="http://ipv4.wtfismyip.com">WTF is my IPv4 address!?</a></H3>
@@ -68,7 +68,7 @@ a:link,a:visited,#tor{color:#f30}
    </div>
    <div id="local"></div>
    <div id="main">
-      <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
+      <script type="text/javascript" src="https://wtfismyip.com/js2clean"></script>
          <center>
             <p>
             <h2>Your ISP:</h2>

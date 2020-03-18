@@ -80,7 +80,9 @@ func main() {
 	r.HandleFunc("/xml", xml)
 	r.HandleFunc("/text", text)
 	r.HandleFunc("/js", jsHandle)
+	r.HandleFunc("/jsclean", jscleanHandle)
 	r.HandleFunc("/js2", js2Handle)
+	r.HandleFunc("/js2clean", js2cleanHandle)
 	r.HandleFunc("/clean", cleanHandle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
@@ -213,6 +215,17 @@ func js2Handle(w http.ResponseWriter, r *http.Request) {
 	w.Write(contents)
 }
 
+
+func js2cleanHandle(w http.ResponseWriter, r *http.Request) {
+	contents, err := ioutil.ReadFile("/usr/local/wtf/static/js2clean")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "No such fucking page!")
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(contents)
+}
+
 func miscHandle(w http.ResponseWriter, r *http.Request) {
 	contents, err := ioutil.ReadFile("/usr/local/wtf/static/evil.log")
 	if err != nil {
@@ -319,6 +332,23 @@ func jsHandle(w http.ResponseWriter, r *http.Request) {
 		response += "document.write('<center><p><h2>Your fucking IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your fucking IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your fucking IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
 		fmt.Fprintf(w, response)
 	}
+}
+
+func jscleanHandle(w http.ResponseWriter, r *http.Request) {
+        add := getAddress(r)
+        hostname := reverseDNS(add)
+        geo := geoData(add)
+        isIPv6 := strings.Contains(add, ":")
+        if isIPv6 && r.Host == "ipv4.wtfismyip.com" {
+                w.WriteHeader(http.StatusMisdirectedRequest)
+                w.Write([]byte("Fucking protocol error"))
+        } else {
+                response := "ip='" + add + "';\n"
+                response += "hostname='" + hostname + "';\n"
+                response += "geolocation='" + geo.details + "';\n"
+                response += "document.write('<center><p><h2>Your IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
+                fmt.Fprintf(w, response)
+        }
 }
 
 func xml(w http.ResponseWriter, r *http.Request) {
