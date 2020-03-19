@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mholt/certmagic"
+	"github.com/caddyserver/certmagic"
 	"github.com/gorilla/mux"
 	"github.com/oschwald/geoip2-golang"
 )
