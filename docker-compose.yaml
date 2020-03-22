@@ -2,7 +2,7 @@ version: '2.3'
 services:
     ipv6nat:
             restart: unless-stopped
-            image: "robbertkl/ipv6nat"
+            image: "gcr.io/omgwtfbbq/ipv6nat:1"
             privileged: true
             network_mode: "host"
             volumes:

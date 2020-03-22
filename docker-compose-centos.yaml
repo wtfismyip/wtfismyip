@@ -2,7 +2,7 @@ version: '2.3'
 services:
     ipv6nat:
             restart: unless-stopped
-            image: "robbertkl/ipv6nat"
+            image: "gcr.io/omgwtfbbq/ipv6nat:1"
             privileged: true
             network_mode: "host"
             volumes:
@@ -18,11 +18,13 @@ services:
                             ipv4_address: 172.19.1.50
             dns: 172.19.1.50
     wtf:
+            security_opt:
+                    - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:1009"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:1039"
             volumes:
-                - "/docker/resolv.conf:/etc/resolv.conf:z"
-                - "/docker/certs:/docker/certs:z"
+                    - "/docker/resolv.conf:/etc/resolv.conf:z"
+                    - "/docker/certs:/docker/certs:z"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -43,6 +45,7 @@ services:
                     - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf:z"
             ports:
                     - "3478:3478/udp"
+
 
 networks:
         omgwtfbbq:
