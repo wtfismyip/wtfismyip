@@ -14,6 +14,9 @@ import (
 	"github.com/caddyserver/certmagic"
 	"github.com/gorilla/mux"
 	"github.com/oschwald/geoip2-golang"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+	metrics "github.com/slok/go-http-metrics/metrics/prometheus"
+	"github.com/slok/go-http-metrics/middleware"
 )
 
 var cityReader *geoip2.Reader
@@ -71,7 +74,13 @@ func main() {
 		log.Fatal(err)
 	}
 
+	mdlw := middleware.New(middleware.Config{
+		Recorder: metrics.NewRecorder(metrics.Config{}),
+	})
+
 	r := mux.NewRouter()
+	h := mdlw.Handler("", r)
+
 	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.Host("ipv7.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.HandleFunc("/headers", headers)
@@ -91,6 +100,7 @@ func main() {
 	r.HandleFunc("/", miscHandle).Methods("TRACE")
 	r.HandleFunc("/admin", adminHandle)
 	r.HandleFunc("/administrator", adminHandle)
+	r.HandleFunc("/metrics", metricsHandle)
 	r.HandleFunc("/{foo:.*log$}", miscHandle)
 	r.HandleFunc("/{foo:.*bak$}", miscHandle)
 	r.HandleFunc("/{foo:.*swp$}", miscHandle)
@@ -113,14 +123,14 @@ func main() {
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
 		Addr:         ":10443",
-		Handler:      r,
+		Handler:      h,
 		TLSConfig:    tlsConfig,
 	}
 
 	srvHTTP := &http.Server{
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
-		Handler:      r,
+		Handler:      h,
 		Addr:         ":10080",
 	}
 
@@ -289,6 +299,10 @@ func adminHandle(w http.ResponseWriter, r *http.Request) {
 func trollHandle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprintf(w, "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=https://www.youtube.com/watch?v=sTSA_sWGM44\" /></head><body><p>TROLOLOLOL!</p></body></html>")
+}
+
+func metricsHandle(w http.ResponseWriter, r *http.Request) {
+	promhttp.Handler().ServeHTTP(w,r)
 }
 
 func json(w http.ResponseWriter, r *http.Request) {
