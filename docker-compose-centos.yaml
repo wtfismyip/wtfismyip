@@ -21,7 +21,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2005"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2007"
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf:z"
                     - "/docker/certs:/docker/certs:z"

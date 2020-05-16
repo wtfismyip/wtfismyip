@@ -86,13 +86,14 @@
     <li>HTML, JSON, XML, and text interfaces</li>
     <li>HTTPS/SSL support</li>
     <li>IPv6 support</li>
-    <li>We don't fucking use CloudFlare</li>
     <li>No fucking advertisements</li>
     <li>No fucking analytics</li>
     <li>No fucking first-party cookies</li>
     <li>No fucking third-party cookies</li>
     <li>Tor exit node notification</li>
     <li>Reasonable fucking rate limiting</li>
+    <li>We don't fucking use CloudFlare</li>
+    <li>We never fucking will</li>
 </ul>
 
 <p>We don't make any money from running this fucking website, since we don't allow ads or trackers.
