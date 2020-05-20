@@ -10,7 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:2"
+            image: "gcr.io/omgwtfbbq/unbound:3"
             runtime: runsc
             networks:
                     omgwtfbbq:
