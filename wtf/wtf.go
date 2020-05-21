@@ -30,6 +30,7 @@ type geoText struct {
 	org         string
 	details     string
 	countryCode string
+	city        string
 }
 
 type wtfResponse struct {
@@ -87,6 +88,12 @@ func main() {
 	r.HandleFunc("/test", test)
 	r.HandleFunc("/json", json)
 	r.HandleFunc("/xml", xml)
+	r.HandleFunc("/text", text)
+	r.HandleFunc("/text/isp", textisp)
+	r.HandleFunc("/text/geo", textgeo)
+	r.HandleFunc("/text/city", textcity)
+	r.HandleFunc("/text/country", textcountry)
+	r.HandleFunc("/text/ip", text)
 	r.HandleFunc("/text", text)
 	r.HandleFunc("/js", jsHandle)
 	r.HandleFunc("/jsclean", jscleanHandle)
@@ -179,7 +186,7 @@ func geoData(ip string) geoText {
 		code = "Unknown"
 	}
 
-	return geoText{isp.ISP, details, code}
+	return geoText{isp.ISP, details, code, city}
 }
 
 func reverseDNS(ip string) string {
@@ -320,6 +327,43 @@ func json(w http.ResponseWriter, r *http.Request) {
 func text(w http.ResponseWriter, r *http.Request) {
 	add := getAddress(r)
 	response := add + "\n"
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	fmt.Fprintf(w, response)
+}
+
+
+func textisp(w http.ResponseWriter, r *http.Request) {
+	add := getAddress(r)
+	response := geoData(add).org + "\n"
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	fmt.Fprintf(w, response)
+}
+
+func textgeo(w http.ResponseWriter, r *http.Request) {
+	add := getAddress(r)
+	response := geoData(add).details + "\n"
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	fmt.Fprintf(w, response)
+}
+
+func textcountry(w http.ResponseWriter, r *http.Request) {
+	add := getAddress(r)
+	response := geoData(add).countryCode+ "\n"
+	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET")
+	fmt.Fprintf(w, response)
+}
+
+func textcity(w http.ResponseWriter, r *http.Request) {
+	add := getAddress(r)
+	response := geoData(add).city + "\n"
 	w.Header().Set("Content-Type", "text/plain")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
