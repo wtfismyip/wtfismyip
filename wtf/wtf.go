@@ -100,6 +100,7 @@ func main() {
 	r.HandleFunc("/js2", js2Handle)
 	r.HandleFunc("/js2clean", js2cleanHandle)
 	r.HandleFunc("/clean", cleanHandle)
+	r.HandleFunc("/traffic.png", trafficHandle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
 	r.HandleFunc("/", miscHandle).Methods("PUT")
@@ -467,6 +468,16 @@ func headers(w http.ResponseWriter, r *http.Request) {
 func ipv5Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
         fmt.Fprintf(w, "No such fucking protocol")
+}
+
+func trafficHandle(w http.ResponseWriter, r *http.Request) {
+        contents, err := ioutil.ReadFile("/docker/metrics/omgwtfbbq.png")
+        if err != nil {
+                w.WriteHeader(http.StatusNotFound)
+                fmt.Fprintf(w, "No such fucking page!")
+        }
+        w.Header().Set("Content-Type", "image/png")
+        w.Write(contents)
 }
 
 func getAddress(r *http.Request) string {

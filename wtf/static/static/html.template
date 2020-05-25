@@ -104,6 +104,9 @@ a:link,a:visited,#tor{color:#f30}
          <li>
             <p class="blah"><a href="/donate">Just Fucking Donate Already</a></p>
          </li>
+         <li>
+            <p class="blah"><a href="/traffic.png">Traffic from you fuckers</a></p>
+         </li>
       </ul>
       <ul>
          <li>Don't like being fucking tracked? Download the fucking <a href="https://www.torproject.org/download/">Tor Browser Bundle!</a>

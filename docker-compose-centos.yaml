@@ -21,10 +21,11 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2007"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2010"
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf:z"
                     - "/docker/certs:/docker/certs:z"
+                    - "/docker/metrics:/docker/metrics"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200

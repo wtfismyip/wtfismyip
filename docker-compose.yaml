@@ -18,10 +18,11 @@ services:
             dns: 172.19.1.50
     wtf:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2008"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2010"
             volumes:
                 - "/docker/resolv.conf:/etc/resolv.conf"
                 - "/docker/certs:/docker/certs"
+                - "/docker/metrics:/docker/metrics"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
