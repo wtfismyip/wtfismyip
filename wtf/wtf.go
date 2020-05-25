@@ -309,8 +309,15 @@ func trollHandle(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=https://www.youtube.com/watch?v=sTSA_sWGM44\" /></head><body><p>TROLOLOLOL!</p></body></html>")
 }
 
+// lets add some really rudimentary and shitty IP whitelisting to block access to explicit metrics
 func metricsHandle(w http.ResponseWriter, r *http.Request) {
-	promhttp.Handler().ServeHTTP(w,r)
+	add := getAddress(r)
+	if add == "51.159.58.189" {
+		promhttp.Handler().ServeHTTP(w,r)
+	} else {
+		w.WriteHeader(http.StatusForbidden)
+		w.Write([]byte("sorry dude"))
+	}
 }
 
 func json(w http.ResponseWriter, r *http.Request) {
