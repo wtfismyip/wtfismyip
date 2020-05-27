@@ -84,6 +84,7 @@ func main() {
 
 	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.Host("ipv7.wtfismyip.com").HandlerFunc(ipv5Handler)
+	r.Host("text.wtfismyip.com").HandlerFunc(text)
 	r.HandleFunc("/headers", headers)
 	r.HandleFunc("/test", test)
 	r.HandleFunc("/json", json)
