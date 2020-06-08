@@ -1,4 +1,4 @@
-FROM golang:1.14.1 as builder
+FROM golang:1.14.4 as builder
 
 MAINTAINER Clint Ruoho clint@wtfismyip.com
 
@@ -13,7 +13,7 @@ FROM alpine:latest
 
 WORKDIR /app
 
-RUN mkdir -p /usr/local/wtf/GeoIP && addgroup -S appuser && adduser -u 100 -S -G appuser appuser
+RUN mkdir -p /usr/local/wtf/GeoIP && addgroup -S appuser && adduser -u 666 -S -G appuser appuser
 COPY static/GeoIP /usr/local/wtf/GeoIP
 COPY static/static /usr/local/wtf/static
 

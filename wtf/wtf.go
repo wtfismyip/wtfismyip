@@ -17,6 +17,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	metrics "github.com/slok/go-http-metrics/metrics/prometheus"
 	"github.com/slok/go-http-metrics/middleware"
+	middlewarestd "github.com/slok/go-http-metrics/middleware/std"
 )
 
 var cityReader *geoip2.Reader
@@ -80,7 +81,7 @@ func main() {
 	})
 
 	r := mux.NewRouter()
-	h := mdlw.Handler("", r)
+	h := middlewarestd.Handler("", mdlw, r)
 
 	r.Host("ipv5.wtfismyip.com").HandlerFunc(ipv5Handler)
 	r.Host("ipv7.wtfismyip.com").HandlerFunc(ipv5Handler)
