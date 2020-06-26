@@ -1,0 +1,9 @@
+<application>
+  <component name="VimRegisterSettings">
+    <registers>
+      <register name="9" type="2">
+        <text encoding="base64">UEFTU1dEPVRST0xPTE9MT09MT0xPTCE=</text>
+      </register>
+    </registers>
+  </component>
+</application>
