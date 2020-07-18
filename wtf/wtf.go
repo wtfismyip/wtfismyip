@@ -322,7 +322,7 @@ func trollHandle(w http.ResponseWriter, r *http.Request) {
 // lets add some really rudimentary and shitty IP whitelisting to block access to explicit metrics
 func metricsHandle(w http.ResponseWriter, r *http.Request) {
 	add := getAddress(r)
-	if add == "51.159.58.189" {
+	if add == "2600:1f16:691:ca00:263:8381:9b5e:c4a3" {
 		promhttp.Handler().ServeHTTP(w,r)
 	} else {
 		w.WriteHeader(http.StatusForbidden)
