@@ -18,7 +18,7 @@ services:
             dns: 172.19.1.50
     wtf:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2018"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2021"
             volumes:
                 - "/docker/resolv.conf:/etc/resolv.conf"
                 - "/docker/certs:/docker/certs"
@@ -33,7 +33,7 @@ services:
     stun:
             restart: unless-stopped
             runtime: runsc
-            image: "gcr.io/omgwtfbbq/stun:2"
+            image: "gcr.io/omgwtfbbq/stun:3"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150

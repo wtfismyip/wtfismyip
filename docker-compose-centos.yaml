@@ -21,7 +21,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2021"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2022"
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf:z"
                     - "/docker/certs:/docker/certs:z"
