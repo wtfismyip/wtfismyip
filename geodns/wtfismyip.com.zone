@@ -1,0 +1,58 @@
+$ORIGIN wtfismyip.com.
+@	86400	IN	SOA	ns-1472.awsdns-56.org. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+@	86400	IN	A	95.217.228.176
+@	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
+@	86400	IN	MX	1 aspmx.l.google.com.
+@	86400	IN	MX	5 alt1.aspmx.l.google.com.
+@	86400	IN	MX	5 alt2.aspmx.l.google.com.
+@	86400	IN	MX	10 aspmx2.googlemail.com.
+@	86400	IN	MX	10 aspmx3.googlemail.com.
+@	172800	IN	NS	ns-1472.awsdns-56.org.
+@	172800	IN	NS	ns-1863.awsdns-40.co.uk.
+@	172800	IN	NS	ns-989.awsdns-59.net.
+@	172800	IN	NS	ns-463.awsdns-57.com.
+@	86400	IN	TXT	"v=spf1 include:_spf.google.com"
+@	86400	IN	TXT	"google-site-verification=AXXKfrBR2-NApGVBYUwYtbJlQDctcVCpCU0KcM5Yoj0"
+@	86400	IN	TXT	"brave-ledger-verification=6fb36367c1fad300eff4d5658c2b9abac40380572dd8682d1a7c78acd6637c6c"
+_dmarc	86400	IN	TXT	"v=DMARC1; p=reject; rua=mailto:3njwtold@ag.dmarcian.com,mailto:re+sc3wmc0dtvy@dmarc.postmarkapp.com"
+_stun._udp	86400	IN	SRV	10 100 3478 stun.wtfismyip.com.
+ca1	86400	IN	A	158.69.0.28
+ca1	86400	IN	AAAA	2607:5300:201:3100::1222
+default._bimi	86400	IN	TXT	"v=BIMI1; l=https://v4-155-138-232-137.unvpn.me/evilshit.svg; a=self;"
+eu1	86400	IN	A	51.15.23.91
+eu1	86400	IN	AAAA	2001:bc8:6010:209:aa1e:84ff:fe73:a105
+eu2.ipv6	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
+eu2	86400	IN	A	95.217.228.176
+eu2	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
+google708319f94cd67401	86400	IN	CNAME	@
+ipv4.json	86400	IN	CNAME	ipv4
+ipv4.text	86400	IN	CNAME	ipv4
+ipv4	86400	IN	A	95.217.228.176
+ipv4.xml	86400	IN	CNAME	ipv4
+ipv5	86400	IN	CNAME	ipv4
+ipv6-eu1	86400	IN	AAAA	2001:bc8:6010:209:aa1e:84ff:fe73:a105
+ipv6-eu2	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6-us1	86400	IN	CNAME	2604:5800:0:4c::6.
+ipv6.json	86400	IN	CNAME	ipv6
+ipv6.text	86400	IN	CNAME	ipv6
+ipv6	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6.xml	86400	IN	CNAME	ipv6
+ipv7	86400	IN	CNAME	ipv4
+json	86400	IN	CNAME	@
+ns1	86400	IN	A	69.195.159.158
+ns1	86400	IN	AAAA	2604:5800:0:4c::6
+ns2	86400	IN	A	155.138.232.137
+ns2	86400	IN	AAAA	2001:19f0:5401:23d2:5400:2ff:fe6b:7905
+ns3	86400	IN	A	167.88.115.134
+ns3	86400	IN	AAAA	2604:180:1:39d::1234
+ns4	86400	IN	A	69.85.95.15
+ns4	86400	IN	AAAA	2606:df00:3::d9c0:cbc9
+omgwtfbbq._domainkey	86400	IN	TXT	"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDEPl3woETdtcdbrvrU0u9ey1Ec+AUDyrHRPUAAfGjtZRtXOwRRUb8W51t2bu/YSTVUz0li6rfbAnBPuobn9EFlEEUe4UkAdM3kHkF8/mU2fnEo/TWbe88+0AXeCeWpkYZyqO9rHQFrwwAiYn0zMP5E/yDRrVDdv5BMFAsvNcch9wIDAQAB"
+rw2rj4vi65ys	86400	IN	CNAME	gv-dakcr3gkqyizxuc23ggurzana7tpf57pb4tfubkamprxjqnnetwq.domainverify.googlehosted.com.
+status	86400	IN	CNAME	stats.uptimerobot.com.
+stun	86400	IN	CNAME	ipv4
+text	86400	IN	CNAME	@
+us1	86400	IN	A	69.195.159.158
+us1	86400	IN	AAAA	2604:5800:0:4c::6
+www	86400	IN	CNAME	@
+xml	86400	IN	CNAME	@
