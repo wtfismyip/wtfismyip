@@ -19,7 +19,7 @@ services:
     wtf:
             restart: unless-stopped
             runtime: kata-runtime
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2024"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2025"
             volumes:
                 - "/docker/resolv.conf:/etc/resolv.conf"
                 - "/docker/certs:/docker/certs"
