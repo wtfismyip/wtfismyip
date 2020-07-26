@@ -104,7 +104,6 @@ func main() {
 	r.HandleFunc("/text/city", textcity)
 	r.HandleFunc("/text/country", textcountry)
 	r.HandleFunc("/text/ip", text)
-	r.HandleFunc("/text", text)
 	r.HandleFunc("/js", jsHandle)
 	r.HandleFunc("/jsclean", jscleanHandle)
 	r.HandleFunc("/js2", js2Handle)
