@@ -11,7 +11,7 @@ services:
     unbound:
             restart: unless-stopped
             runtime: kata-qemu
-            image: "gcr.io/omgwtfbbq/unbound:3"
+            image: "gcr.io/omgwtfbbq/unbound:4"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -19,7 +19,7 @@ services:
     wtf:
             restart: unless-stopped
             runtime: kata-qemu
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2025"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2029"
             volumes:
                 - "/docker/resolv.conf:/etc/resolv.conf"
                 - "/docker/certs:/docker/certs"
