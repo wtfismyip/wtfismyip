@@ -1,2 +1,3 @@
 wtf/static/GeoIP/*
 nginx/nginx/certs/*
+wtf/docker/*

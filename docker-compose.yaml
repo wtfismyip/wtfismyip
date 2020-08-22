@@ -19,11 +19,7 @@ services:
     wtf:
             restart: unless-stopped
             runtime: kata-fc
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2029"
-            volumes:
-                - "/docker/resolv.conf:/etc/resolv.conf"
-                - "/docker/certs:/docker/certs"
-                - "/docker/metrics:/docker/metrics"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2030"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -38,8 +34,6 @@ services:
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
-            volumes:
-                    - "/docker/turnserver/turnserver.conf:/etc/turnserver.conf"
             ports:
                     - "3478:3478/udp"
 
