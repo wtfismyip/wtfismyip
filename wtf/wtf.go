@@ -487,7 +487,7 @@ func ipv5Handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func trafficHandle(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<html><head><img src=\"https://static.wtfismyip.com/omgwtfbbq.png\"></head></html>")
+	fmt.Fprintf(w, "<html><head><img src=\"https://static.wtfismyip.com/omgwtfbbq.png\" width=\"1600\" height=\"800\"></head></html>")
 }
 
 func getAddress(r *http.Request) string {
