@@ -5,30 +5,39 @@
 
 # Main fucking endpoints
 
-## /headers
+`/headers`
+
 This one tells you what fucking data you're giving when connecting to a server.
 
-## /json
+`/json`
+
 Gives you exactly what the main endpoint does except it gives it in raw fucking [JSON](https://www.json.org/json-en.html).
 
-## /xml
+`/xml`
+
 Just like /json but fucking worse (read about it [here](https://en.wikipedia.org/wiki/XML)).
 
-## /text
+`/text`
+
 Gives you just your IP in plain fucking text.
 
-## /why
+`/why`
+
 Tells you why the fuck we do what we do.
 
-## /automation
+`/automation`
+
 Tells you what you can and can not do with the hosted instance of the fucking service.
 
-## /privacy
+`/privacy`
+
 Tells you exactly how much we respect your fucking privacy.
 
-## /donate
+`/donate`
+
 Makes our fucking services run.
 
-## /traffic
+`/traffic`
+
 Shows you the traffic from fuckers around the world that came to fuck with us.
 
