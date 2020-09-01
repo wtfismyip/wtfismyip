@@ -41,3 +41,30 @@ Makes our fucking services run.
 
 Shows you the traffic from fuckers around the world that came to fuck with us.
 
+`/clean`
+
+Use this at church.
+
+# Dual-stack hostname endpoints
+
+`text.wtfismyip.com`
+`json.wtfismyip.com`
+`xml.wtfismyip.com`
+
+# IPv4 hostname endpoints
+
+`text.ipv4.wtfismyip.com`
+`ipv4.text.wtfismyip.com`
+`json.ipv4.wtfismyip.com`
+`ipv4.json.wtfismyip.com`
+`xml.ipv4.wtfismyip.com`
+`ipv4.xml.wtfismyip.com`
+
+# IPv6 hostname endpoints
+
+`text.ipv6.wtfismyip.com`
+`ipv6.text.wtfismyip.com`
+`json.ipv6.wtfismyip.com`
+`ipv6.json.wtfismyip.com`
+`ipv6.xml.wtfismyip.com`
+`xml.ipv6.wtfismyip.com`
