@@ -21,7 +21,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2044"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2047"
             runtime: kata-fc
             networks:
                     omgwtfbbq:
