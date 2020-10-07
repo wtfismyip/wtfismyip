@@ -474,6 +474,7 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Referrer-Policy", "no-referrer")
 		w.Header().Set("X-Commentary", "I really set most of these headers to get an A at securityheaders.io. Yes, I understand that most of these are completely unnecessary for this fucking website.")
 		w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
+		w.Header().Set("X-Did-I-Set-Too-Many-Fucking-Headers", "YES")
 		templateHTML.Execute(w, resp)
 	}
 }
