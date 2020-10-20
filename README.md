@@ -43,7 +43,7 @@ Shows you the traffic from fuckers around the world that came to fuck with us.
 
 `/clean`
 
-Use this at church.
+Use this at church, motherfucker.
 
 # Dual-stack hostname endpoints
 
