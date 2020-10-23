@@ -23,7 +23,8 @@ a:link,a:visited,#tor{color:#f30}
 #local h2{font-size:24px;font-weight:700;letter-spacing:-1px;padding:2px 0}
 #local p{font-size:15px;line-height:20px;margin:0 0 20px}
 #local ul{padding:0 0 0 20px}
-#local li{list-style-type:square;font-size:15px;line-height:10px;margin:0 0 10px}</style></script> </head><!--Belive me, you could not write shittier HTML than this even if you tried-->
+#local li{list-style-type:square;font-size:15px;line-height:10px;margin:0 0 10px}
+@media (prefers-color-scheme: dark){body{background:#000; color:#fff} #sidebar h2{color:whitesmoke}}</style></script> </head><!--Belive me, you could not write shittier HTML than this even if you tried-->
 <body>
    <div id="main">
       <center>
