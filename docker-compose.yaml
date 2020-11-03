@@ -11,7 +11,7 @@ services:
     unbound:
             restart: unless-stopped
             runtime: kata-fc
-            image: "gcr.io/omgwtfbbq/unbound:4"
+            image: "gcr.io/omgwtfbbq/unbound:5"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -32,7 +32,7 @@ services:
     stun:
             restart: unless-stopped
             runtime: kata-fc
-            image: "gcr.io/omgwtfbbq/stun:3"
+            image: "gcr.io/omgwtfbbq/stun:4"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150

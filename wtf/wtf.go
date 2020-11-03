@@ -145,6 +145,7 @@ func main() {
 	srvHTTPS := &http.Server{
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
+		IdleTimeout:  30 * time.Second,
 		Addr:         ":10443",
 		Handler:      h,
 		TLSConfig:    tlsConfig,
@@ -153,6 +154,7 @@ func main() {
 	srvHTTP := &http.Server{
 		ReadTimeout:  16 * time.Second,
 		WriteTimeout: 24 * time.Second,
+		IdleTimeout:  30 * time.Second,
 		Handler:      h,
 		Addr:         ":10080",
 	}
