@@ -8,17 +8,18 @@
 	    "closest": true,
             "ns": [
                 "ns1.wtfismyip.com.",
-                "ns2.wtfismyip.com",
-                "ns3.wtfismyip.com",
-                "ns4.wtfismyip.com"
+                "ns2.wtfismyip.com.",
+                "ns3.wtfismyip.com.",
+                "ns4.wtfismyip.com."
             ],
             "mx": [ { "mx": "aspmx.l.google.com", "preference": 1, "ttl": 43200 }, { "mx": "alt1.aspmx.l.google.com", "preference": 5, "ttl": 43200 },  { "mx": "alt2.aspmx.l.google.com", "preference": 5, "ttl": 43200 },  { "mx": "aspmx2.googlemail.com", "preference": 10, "ttl": 43200 },  { "mx": "aspmx3.googlemail.com", "preference": 10, "ttl": 43200 } ],
-            "a": [ [ "FOO4", 100 ], [ "EU4", 100 ], [ "US4", 100 ], [ "BAR4", 100 ], [ "AP4", 100 ] ],
-            "aaaa": [ [ "US6", 100 ], [ "EU6", 100 ], [ "FOO6", 100], [ "BAR6", 100 ], [ "AP6", 100 ] ],
+            "a": [ [ "FOO4", 100 ], [ "EU4", 100 ], [ "US4", 100 ], [ "BAR4", 100 ], [ "AP4", 100 ], ["FOO4", 100 ]],
+            "aaaa": [ [ "US6", 100 ], [ "EU6", 100 ], [ "FOO6", 100], [ "BAR6", 100 ], [ "AP6", 100 ], ["FOO6", 100]],
             "txt": [
                 "v=spf1 include:_spf.google.com ~all",
                 "google-site-verification=AXXKfrBR2-NApGVBYUwYtbJlQDctcVCpCU0KcM5Yoj0",
-                "brave-ledger-verification=6fb36367c1fad300eff4d5658c2b9abac40380572dd8682d1a7c78acd6637c6c"
+                "brave-ledger-verification=6fb36367c1fad300eff4d5658c2b9abac40380572dd8682d1a7c78acd6637c6c",
+		"detectify-verification=92276a1abf36d7b259218f5316a32e70"
             ]
         },
         "_acme-challenge": { "ttl": 1, "txt": [ "OMGWTFBBQ", "OMGWTFBBQ", "OMGWTFBBQ", "OMGWTFBBQ" ] },
@@ -42,11 +43,11 @@
         "status": { "ttl": 86400, "cname": "stats.uptimerobot.com." },
         "google708319f94cd67401": { "ttl": 86400, "cname": "wtfismyip.com." },
         "rw2rj4vi65ys": { "ttl": 86400, "cname": "gv-dakcr3gkqyizxuc23ggurzana7tpf57pb4tfubkamprxjqnnetwq.domainverify.googlehosted.com." },
-        "static": { "a": [ [ "155.138.232.137", 100 ] ], "aaaa": [ [ "2001:19f0:5401:23d2:5400:2ff:fe6b:7905", 100 ] ] },
-        "ns1": { "a": [ [ "69.195.159.158", 100 ] ], "aaaa": [ [ "2604:5800:0:4c::6", 100 ] ] },
-        "ns2": { "a": [ [ "155.138.232.137", 100 ] ], "aaaa": [ [ "2001:19f0:5401:23d2:5400:2ff:fe6b:7905", 100 ] ] },
-        "ns3": { "a": [ [ "167.88.115.134", 100 ] ], "aaaa": [ [ "2604:180:1:39d::1234", 100 ] ] },
-        "ns4": { "a": [ [ "69.85.95.15", 100 ] ], "aaaa": [ [ "2606:df00:3::d9c0:cbc9", 100 ] ] },
+        "static": { "ttl": 86400, "a": [ [ "155.138.232.137", 100 ] ], "aaaa": [ [ "2001:19f0:5401:23d2:5400:2ff:fe6b:7905", 100 ] ] },
+        "ns1": { "ttl": 86400, "a": [ [ "69.195.159.158", 100 ] ], "aaaa": [ [ "2604:5800:0:4c::6", 100 ] ] },
+        "ns2": { "ttl": 86400, "a": [ [ "155.138.232.137", 100 ] ], "aaaa": [ [ "2001:19f0:5401:23d2:5400:2ff:fe6b:7905", 100 ] ] },
+        "ns3": { "ttl": 86400, "a": [ [ "167.88.115.134", 100 ] ], "aaaa": [ [ "2604:180:1:39d::1234", 100 ] ] },
+        "ns4": { "ttl": 86400, "a": [ [ "129.146.80.174", 100 ] ] },
         "ipv4": { "a": [ [ "US4", 100 ], [ "EU4", 100 ], [ "FOO4", 100 ], [ "BAR4", 100 ], [ "AP4", 100 ] ] },
         "ipv5": { "a": [ [ "US4", 100 ] ] },
         "ipv6": { "aaaa": [ [ "US6", 100 ], [ "EU6", 100 ], [ "FOO6", 100 ], [ "BAR6", 100 ], [ "AP6", 100 ] ] },
@@ -62,7 +63,7 @@
         "ca1": { "a": [ [ "158.69.0.28", 100 ] ], "aaaa": [ [ "2607:5300:201:3100::1222", 100 ] ] },
         "ipv6-ca1": { "aaaa": [ [ "2607:5300:201:3100::1222", 100 ] ] },
         "stun": { "a": [ [ "US4", 100 ] ] },
-        "_stun._udp": { "srv": [ { "port": 3478, "srv_weight": 100, "priority": 10, "target": "stun.wtfismyip.com." } ] },
+        "_stun._udp": { "ttl": 86400, "srv": [ { "port": 3478, "srv_weight": 100, "priority": 10, "target": "stun.wtfismyip.com." } ] },
         "grafana": { "a": [ [ "51.159.58.189", 100 ] ] },
         "grafana-old": { "a": [ [ "129.146.80.174", 100 ] ] }
     }
