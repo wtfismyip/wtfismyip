@@ -139,7 +139,7 @@ func main() {
 
 	config := certmagic.NewDefault()
 	tags := []string{}
-	config.CacheUnmanagedCertificatePEMFile("/docker/certs/wtf.ecc.cert.pem", "/docker/certs/wtf.ecc.key.pem",tags)
+	config.CacheUnmanagedCertificatePEMFile("/docker/certs/wtf.cert.pem", "/docker/certs/wtf.key.pem",tags)
 	tlsConfig := config.TLSConfig()
 
 	srvHTTPS := &http.Server{

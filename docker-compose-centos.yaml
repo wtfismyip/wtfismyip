@@ -11,7 +11,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:5"
+            image: "gcr.io/omgwtfbbq/unbound:6"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -20,7 +20,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2065"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2066"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -31,7 +31,7 @@ services:
             security_opt:
                     - label:disable
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/stun:4"
+            image: "gcr.io/omgwtfbbq/stun:5"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150

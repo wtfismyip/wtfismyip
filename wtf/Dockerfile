@@ -1,4 +1,4 @@
-FROM golang:1.15.3 as builder
+FROM golang:1.16-rc-buster as builder
 
 MAINTAINER Clint Ruoho clint@wtfismyip.com
 
