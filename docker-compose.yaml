@@ -10,7 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:6"
+            image: "gcr.io/omgwtfbbq/unbound:7"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -19,7 +19,7 @@ services:
             restart: unless-stopped
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:3002"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:3003"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -29,7 +29,7 @@ services:
                     - "443:10443"
     stun:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/stun:5"
+            image: "gcr.io/omgwtfbbq/stun:7"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
