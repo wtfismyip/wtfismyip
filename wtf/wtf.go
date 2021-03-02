@@ -143,18 +143,18 @@ func main() {
 	tlsConfig := config.TLSConfig()
 
 	srvHTTPS := &http.Server{
-		ReadTimeout:  16 * time.Second,
-		WriteTimeout: 24 * time.Second,
-		IdleTimeout:  30 * time.Second,
+		ReadTimeout:  8 * time.Second,
+		WriteTimeout: 16 * time.Second,
+		IdleTimeout:  16 * time.Second,
 		Addr:         ":10443",
 		Handler:      h,
 		TLSConfig:    tlsConfig,
 	}
 
 	srvHTTP := &http.Server{
-		ReadTimeout:  16 * time.Second,
-		WriteTimeout: 24 * time.Second,
-		IdleTimeout:  30 * time.Second,
+		ReadTimeout:  8 * time.Second,
+		WriteTimeout: 16 * time.Second,
+		IdleTimeout:  16 * time.Second,
 		Handler:      h,
 		Addr:         ":10080",
 	}
@@ -225,7 +225,7 @@ func reverseDNS(ip string) string {
 	select {
 	case res := <-omfg:
 		return (res)
-	case <-time.After(5 * time.Second):
+	case <-time.After(2 * time.Second):
 		return (ip)
 	}
 }
