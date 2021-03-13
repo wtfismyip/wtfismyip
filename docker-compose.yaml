@@ -10,6 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
+            runtime: runsc
             image: "gcr.io/omgwtfbbq/unbound:7"
             networks:
                     omgwtfbbq:
@@ -29,6 +30,7 @@ services:
                     - "443:10443"
     stun:
             restart: unless-stopped
+            runtime: runsc
             image: "gcr.io/omgwtfbbq/stun:7"
             networks:
                     omgwtfbbq:
