@@ -1,4 +1,4 @@
-FROM golang:1.16 as builder
+FROM golang:1.16.5 as builder
 
 MAINTAINER Clint Ruoho clint@wtfismyip.com
 
