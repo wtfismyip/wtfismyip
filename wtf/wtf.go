@@ -184,6 +184,7 @@ func geoData(ip string) geoText {
 
 	city, isCityPresent := record.City.Names["en"]
 	country, _ := record.Country.Names["en"]
+        country = strings.Replace(country, "Palestinian Territory", "Occupied Palestinian Territories", 1)
 	code := record.Country.IsoCode
 
 	if isCityPresent {
