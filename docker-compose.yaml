@@ -11,7 +11,7 @@ services:
     unbound:
             restart: unless-stopped
             runtime: runsc
-            image: "gcr.io/omgwtfbbq/unbound:12"
+            image: "gcr.io/omgwtfbbq/unbound:13"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -20,7 +20,7 @@ services:
             restart: unless-stopped
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:3100"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:3101"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
