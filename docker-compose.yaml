@@ -18,6 +18,7 @@ services:
             dns: 172.19.1.50
     wtf:
             restart: unless-stopped
+            runtime: runsc-kvm
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
             image: "gcr.io/omgwtfbbq/wtf-standalone:3101"
