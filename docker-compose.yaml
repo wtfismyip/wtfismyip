@@ -10,7 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            runtime: runsc
+            runtime: runsc-kvm
             image: "gcr.io/omgwtfbbq/unbound:13"
             networks:
                     omgwtfbbq:
@@ -30,7 +30,7 @@ services:
                     - "443:10443"
     stun:
             restart: unless-stopped
-            runtime: runsc
+            runtime: runsc-kvm
             image: "gcr.io/omgwtfbbq/stun:10"
             networks:
                     omgwtfbbq:
