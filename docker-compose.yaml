@@ -8,9 +8,10 @@ services:
             volumes:
                     - "/var/run/docker.sock:/var/run/docker.sock:ro"                                                           
                     - "/lib/modules:/lib/modules:ro"
-    bind9:
+    unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/bind9:2"
+            image: "gcr.io/omgwtfbbq/unbound:100"
+            runtime: runsc-kvm
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -20,6 +21,7 @@ services:
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
             image: "gcr.io/omgwtfbbq/wtf-standalone:3102"
+            runtime: runsc-kvm
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -29,8 +31,8 @@ services:
                     - "443:10443"
     stun:
             restart: unless-stopped
-            runtime: runsc-kvm
             image: "gcr.io/omgwtfbbq/stun:10"
+            runtime: runsc-kvm
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
