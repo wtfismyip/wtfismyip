@@ -10,8 +10,11 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:100"
+            image: "gcr.io/omgwtfbbq/unbound:101"
             runtime: runsc-kvm
+            mem_limit: 4g
+            volumes:
+                    - "/docker/unbound.conf:/etc/unbound/unbound.conf"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.50
@@ -21,7 +24,6 @@ services:
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
             image: "gcr.io/omgwtfbbq/wtf-standalone:3102"
-            runtime: runsc-kvm
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
