@@ -47,24 +47,24 @@ Use this at church, motherfucker.
 
 # Dual-stack hostname endpoints
 
-`text.wtfismyip.com`
-`json.wtfismyip.com`
-`xml.wtfismyip.com`
+`https://text.wtfismyip.com/`
+`https://json.wtfismyip.com/`
+`https://xml.wtfismyip.com/`
 
 # IPv4 hostname endpoints
 
-`text.ipv4.wtfismyip.com`
-`ipv4.text.wtfismyip.com`
-`json.ipv4.wtfismyip.com`
-`ipv4.json.wtfismyip.com`
-`xml.ipv4.wtfismyip.com`
-`ipv4.xml.wtfismyip.com`
+`https://text.ipv4.wtfismyip.com/`
+`https://ipv4.text.wtfismyip.com/`
+`https://json.ipv4.wtfismyip.com`
+`https://ipv4.json.wtfismyip.com/`
+`https://xml.ipv4.wtfismyip.com/`
+`https://ipv4.xml.wtfismyip.com/`
 
 # IPv6 hostname endpoints
 
-`text.ipv6.wtfismyip.com`
-`ipv6.text.wtfismyip.com`
-`json.ipv6.wtfismyip.com`
-`ipv6.json.wtfismyip.com`
-`ipv6.xml.wtfismyip.com`
-`xml.ipv6.wtfismyip.com`
+`https://text.ipv6.wtfismyip.com/`
+`https://ipv6.text.wtfismyip.com/`
+`https://json.ipv6.wtfismyip.com/`
+`https://ipv6.json.wtfismyip.com/`
+`https://ipv6.xml.wtfismyip.com/`
+`https://xml.ipv6.wtfismyip.com/`
