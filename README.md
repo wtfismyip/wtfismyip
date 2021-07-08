@@ -52,7 +52,7 @@ Use this at church, motherfucker.
 `https://json.wtfismyip.com/`
 `https://xml.wtfismyip.com/`
 
-# IPv4 hostname endpoints
+# IPv4 hostname endpoints (identical functionality with https://myip.wtf/)
 
 `https://text.ipv4.wtfismyip.com/`
 `https://ipv4.text.wtfismyip.com/`
@@ -61,7 +61,7 @@ Use this at church, motherfucker.
 `https://xml.ipv4.wtfismyip.com/`
 `https://ipv4.xml.wtfismyip.com/`
 
-# IPv6 hostname endpoints
+# IPv6 hostname endpoints (identical functionalty with https://myip.wtf/)
 
 `https://text.ipv6.wtfismyip.com/`
 `https://ipv6.text.wtfismyip.com/`
