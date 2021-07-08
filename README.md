@@ -46,7 +46,7 @@ Shows you the traffic from fuckers around the world that came to fuck with us.
 
 Use this at church, motherfucker.
 
-# Dual-stack hostname endpoints
+# Dual-stack hostname endpoints (identical functionality with https://myip.wtf/)
 
 `https://text.wtfismyip.com/`
 `https://json.wtfismyip.com/`
