@@ -2,6 +2,7 @@
 
 1. This is the fucking source code for https://wtfismyip.com/. There isn't much to it.
 2. This is now a fucking community project. Send a pull request to make it better.
+3. Backend is also accessible on https://myip.wtf/ because typing sucks.
 
 # Main fucking endpoints
 
