@@ -476,7 +476,11 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	geo := geoData(add)
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
 	if r.TLS == nil {
-		http.Redirect(w, r, "https://wtfismyip.com/", 301)
+		if (r.Host == "myip.wtf") {
+			http.Redirect(w, r, "https://myip.wtf/", 301)
+		} else {
+			http.Redirect(w, r, "https://wtfismyip.com/", 301)
+		}
 	} else {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Header().Set("X-Hire-Me", "clint@wtfismyip.com")
