@@ -1,4 +1,4 @@
-module wtfismyip/wtfismyip
+module github.com/wtfismyip/wtfismyip
 
 go 1.16
 
