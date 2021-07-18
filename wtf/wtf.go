@@ -58,12 +58,6 @@ func main() {
 		Password: "",
 		DB: 0})
 
-	set := rdb.Set(ctx, "moo", "cow", 0).Err()
-
-	if set != nil {
-		fmt.Println("moo!")
-	}
-
 	cityReader, err = geoip2.Open("/usr/local/wtf/GeoIP/GeoIP2-City.mmdb")
 	if err != nil {
 		log.Fatal(err)
@@ -550,8 +544,8 @@ func getAddress(r *http.Request) string {
 
 func isTorExit(ip string) bool {
 	val, _ := rdb.Get(ctx, ip).Result()
-	fmt.Println("looked up %s and got %s\n", ip, val)
-	if val == "moo" {
+
+	if val == "exit" {
 		return true
 	} else {
 	return false

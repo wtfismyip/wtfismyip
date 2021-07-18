@@ -21,7 +21,7 @@ services:
             restart: unless-stopped
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:3212"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:3303"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -49,6 +49,15 @@ services:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.70
             dns: 172.19.1.50
+
+    redis:
+            restart: unless-stopped
+            image: "gcr.io/omgwtfbbq/redis:7"
+            runtime: runsc-kvm
+            mem_limit: 512m
+            networks:
+                    omgwtfbbq:
+                            ipv4_address: 172.19.1.70
 
 networks:
         omgwtfbbq:
