@@ -544,6 +544,7 @@ func getAddress(r *http.Request) string {
 
 func isTorExit(ip string) bool {
 	val, _ := rdb.Get(ctx, ip).Result()
+
 	if val == "exit" {
 		return true
 	} else {

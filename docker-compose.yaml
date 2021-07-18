@@ -40,6 +40,15 @@ services:
                             ipv4_address: 172.19.1.150
             ports:
                     - "3478:3478/udp"
+    redis:
+            restart: unless-stopped
+            image: "gcr.io/omgwtfbbq/redis:6"
+            runtime: runsc-kvm
+            mem_limit: 1g
+            networks:
+                    omgwtfbbq:
+                            ipv4_address: 172.19.1.70
+            dns: 172.19.1.50
 
     redis:
             restart: unless-stopped
