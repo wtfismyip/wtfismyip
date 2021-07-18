@@ -26,6 +26,7 @@ a:link,a:visited,#tor{color:#f30}
 #local li{list-style-type:square;font-size:15px;line-height:10px;margin:0 0 10px}
 @media (prefers-color-scheme: dark){body{background:#000; color:#fff} #sidebar h2{color:whitesmoke}}</style></script> </head><!--Belive me, you could not write shittier HTML than this even if you tried-->
 <body>
+{{if .Tor }}<div id="tor"><center><p><h2>You are using Tor!</h2></center></div>{{end}}
    <div id="main">
       <center>
          <p>

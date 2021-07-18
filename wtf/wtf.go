@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"text/template"
 	"io/ioutil"
@@ -12,6 +13,7 @@ import (
 	"time"
 
 	"github.com/caddyserver/certmagic"
+	"github.com/go-redis/redis/v8"
 	"github.com/gorilla/mux"
 	"github.com/oschwald/geoip2-golang"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -41,10 +43,26 @@ type wtfResponse struct {
 	Geo         string
 	ISP         string
 	CountryCode string
+	Tor         bool
 }
+
+var ctx = context.Background()
+
+var rdb *redis.Client
 
 func main() {
 	var err error
+
+	rdb = redis.NewClient(&redis.Options{
+		Addr:	"172.19.1.70:6379",
+		Password: "",
+		DB: 0})
+
+	set := rdb.Set(ctx, "moo", "cow", 0).Err()
+
+	if set != nil {
+		fmt.Println("moo!")
+	}
 
 	cityReader, err = geoip2.Open("/usr/local/wtf/GeoIP/GeoIP2-City.mmdb")
 	if err != nil {
@@ -358,7 +376,8 @@ func json(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	isIPv6 := strings.Contains(add, ":")
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
+	isTor := isTorExit(add)
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
@@ -455,7 +474,8 @@ func xml(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	isIPv6 := strings.Contains(add, ":")
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
+	isTor := isTorExit(add)
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
 	w.Header().Set("Content-Type", "application/xml")
 	templateXML.Execute(w, resp)
 }
@@ -465,7 +485,8 @@ func cleanHandle(w http.ResponseWriter, r *http.Request) {
 	isIPv6 := strings.Contains(add, ":")
 	hostname := reverseDNS(add)
 	geo := geoData(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
+	isTor := isTorExit(add)
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
 	templateClean.Execute(w, resp)
 }
 
@@ -474,7 +495,8 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	isIPv6 := strings.Contains(add, ":")
 	hostname := reverseDNS(add)
 	geo := geoData(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode}
+	isTor := isTorExit(add)
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
 	if r.TLS == nil {
 		if (r.Host == "myip.wtf") {
 			http.Redirect(w, r, "https://myip.wtf/", 301)
@@ -524,4 +546,14 @@ func getAddress(r *http.Request) string {
 		return "0.0.0.0"
 	}
 	return ip
+}
+
+func isTorExit(ip string) bool {
+	val, _ := rdb.Get(ctx, ip).Result()
+	fmt.Println("looked up %s and got %s\n", ip, val)
+	if val == "moo" {
+		return true
+	} else {
+	return false
+	}
 }
