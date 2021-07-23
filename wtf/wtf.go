@@ -354,10 +354,11 @@ func trollHandle(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<html><head><meta http-equiv=\"Refresh\" content=\"0; url=https://www.youtube.com/watch?v=sTSA_sWGM44\" /></head><body><p>TROLOLOLOL!</p></body></html>")
 }
 
-// lets add some really rudimentary and shitty IP whitelisting to block access to explicit metrics
+// lets add some really rudimentary and shitty IP allowlisting to block access to explicit metrics
 func metricsHandle(w http.ResponseWriter, r *http.Request) {
+	allowlistAddr, _ := rdb.Get(ctx, "allowlistAddr").Result()
 	add := getAddress(r)
-	if add == "2600:1f16:691:ca00:263:8381:9b5e:c4a3" {
+	if add == allowlistAddr {
 		promhttp.Handler().ServeHTTP(w,r)
 	} else {
 		w.WriteHeader(http.StatusForbidden)
