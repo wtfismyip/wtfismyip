@@ -46,26 +46,43 @@ Shows you the traffic from fuckers around the world that came to fuck with us.
 
 Use this at church, motherfucker.
 
-# Dual-stack hostname endpoints (identical functionality with https://myip.wtf/)
+# Dual-stack hostname endpoints
 
-`https://text.wtfismyip.com/`
-`https://json.wtfismyip.com/`
-`https://xml.wtfismyip.com/`
+*wtfismyip.com is dual-stack. Operating system defaults and network connectivity will determine whether you get an IPv4 or IPv6 address. That can be really fucking annoying, so we also have IPv4/IPv6-only endpoints as documented below.*
 
-# IPv4 hostname endpoints (identical functionality with https://myip.wtf/)
+- `https://text.wtfismyip.com/` 
+- `https://json.wtfismyip.com/`
+- `https://xml.wtfismyip.com/`
+- `https://text.myip.wtf/`
+- `https://json.myip.wtf`
+- `https://xml.myip.wtf`
 
-`https://text.ipv4.wtfismyip.com/`
-`https://ipv4.text.wtfismyip.com/`
-`https://json.ipv4.wtfismyip.com`
-`https://ipv4.json.wtfismyip.com/`
-`https://xml.ipv4.wtfismyip.com/`
-`https://ipv4.xml.wtfismyip.com/`
+# IPv4 hostname endpoints
 
-# IPv6 hostname endpoints (identical functionalty with https://myip.wtf/)
+- `https://text.ipv4.wtfismyip.com/`
+- `https://ipv4.text.wtfismyip.com/`
+- `https://json.ipv4.wtfismyip.com`
+- `https://ipv4.json.wtfismyip.com/`
+- `https://xml.ipv4.wtfismyip.com/`
+- `https://ipv4.xml.wtfismyip.com/`
+- `https://text.ipv4.myip.wtf/`
+- `https://ipv4.text.myip.wtf/`
+- `https://json.ipv4.myip.wtf/`
+- `https://ipv4.json.myip.wtf/`
+- `https://xml.ipv4.myip.wtf/`
+- `https://ipv4.xml.myip.wtf/`
 
-`https://text.ipv6.wtfismyip.com/`
-`https://ipv6.text.wtfismyip.com/`
-`https://json.ipv6.wtfismyip.com/`
-`https://ipv6.json.wtfismyip.com/`
-`https://ipv6.xml.wtfismyip.com/`
-`https://xml.ipv6.wtfismyip.com/`
+# IPv6 hostname endpoints
+
+- `https://text.ipv6.wtfismyip.com/`
+- `https://ipv6.text.wtfismyip.com/`
+- `https://json.ipv6.wtfismyip.com`
+- `https://ipv6.json.wtfismyip.com/`
+- `https://xml.ipv6.wtfismyip.com/`
+- `https://ipv6.xml.wtfismyip.com/`
+- `https://text.ipv6.myip.wtf/`
+- `https://ipv6.text.myip.wtf/`
+- `https://json.ipv6.myip.wtf/`
+- `https://ipv6.json.myip.wtf/`
+- `https://xml.ipv6.myip.wtf/`
+- `https://ipv6.xml.myip.wtf/`
