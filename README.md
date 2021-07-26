@@ -59,6 +59,8 @@ Use this at church, motherfucker.
 
 # IPv4 hostname endpoints
 
+*Useful for automation, curl, terminal usage*
+
 - `https://text.ipv4.myip.wtf/`
 - `https://ipv4.text.myip.wtf/`
 - `https://json.ipv4.myip.wtf/`
@@ -72,7 +74,14 @@ Use this at church, motherfucker.
 - `https://xml.ipv4.wtfismyip.com/`
 - `https://ipv4.xml.wtfismyip.com/`
 
+*Or if you're stuck in a browser*
+
+- `https://ipv4.wtfismyip.com`
+- `https://ipv4.myip.wtf`
+
 # IPv6 hostname endpoints
+
+*Useful for automation, curl, terminal usage*
 
 - `https://text.ipv6.myip.wtf/`
 - `https://ipv6.text.myip.wtf/`
@@ -86,3 +95,8 @@ Use this at church, motherfucker.
 - `https://ipv6.json.wtfismyip.com/`
 - `https://xml.ipv6.wtfismyip.com/`
 - `https://ipv6.xml.wtfismyip.com/`
+
+*Or if you're stuck in a browser*
+
+- `https://ipv6.wtfismyip.com`
+- `https://ipv6.myip.wtf`
