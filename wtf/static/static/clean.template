@@ -29,6 +29,7 @@ a:link,a:visited,#tor{color:#f30}
    <div id="main">
       <center>
          <p>
+<p><H2>Now accessible as <a href="https://myip.wtf/">myip.wtf</a>!</H2></p><br>
 {{if .Tor}}<div id="tor"><center><p><h2>You are using Tor!</h2></center></div>{{end}}
 {{if .IPv6 }}<h2>Your IPv6 address is:</h2>
 {{else}}<h2>Your IP address is:</h2>
