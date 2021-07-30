@@ -1,0 +1,22 @@
+$ORIGIN myip.wtf.
+@	43200	IN	A	95.217.228.176
+@	43200	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv4.json	172800	IN	CNAME	ipv4
+ipv4	43200	IN	A	95.217.228.176
+ipv4.text	172800	IN	CNAME	ipv4
+ipv4.xml	172800	IN	CNAME	ipv4
+ipv6.json	172800	IN	CNAME	ipv6
+ipv6	43200	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6.text	172800	IN	CNAME	ipv6
+ipv6.xml	172800	IN	CNAME	ipv6
+json.ipv4	172800	IN	CNAME	ipv4
+json.ipv6	172800	IN	CNAME	ipv6
+json	172800	IN	CNAME	@
+static	172800	IN	A	84.22.103.96
+static	172800	IN	AAAA	2a02:2770:8:0:21a:4aff:fe05:bc72
+text.ipv4	172800	IN	CNAME	ipv4
+text.ipv6	172800	IN	CNAME	ipv6
+text	172800	IN	CNAME	@
+xml.ipv4	172800	IN	CNAME	ipv4
+xml.ipv6	172800	IN	CNAME	ipv6
+xml	172800	IN	CNAME	@
