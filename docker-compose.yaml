@@ -34,7 +34,7 @@ services:
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/stun:11"
             runtime: runsc-kvm
-            mem_limit: 512m
+            mem_limit: 256m
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.150
@@ -44,7 +44,7 @@ services:
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/redis:6"
             runtime: runsc-kvm
-            mem_limit: 1g
+            mem_limit: 256m
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.70
