@@ -3,7 +3,7 @@ FROM debian:unstable
 MAINTAINER Clint Ruoho clint@wtfismyip.com
 
 RUN apt-get -y update
-RUN apt-get -y install unbound
+RUN apt-get -y install unbound procps
 
 COPY unbound.conf /etc/unbound/unbound.conf
 
