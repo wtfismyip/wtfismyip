@@ -44,6 +44,7 @@ type wtfResponse struct {
 	ISP         string
 	CountryCode string
 	Tor         bool
+	Myipwtf	    bool
 }
 
 var ctx = context.Background()
@@ -372,7 +373,7 @@ func json(w http.ResponseWriter, r *http.Request) {
 	geo := geoData(add)
 	isIPv6 := strings.Contains(add, ":")
 	isTor := isTorExit(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor, false}
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
@@ -470,7 +471,7 @@ func xml(w http.ResponseWriter, r *http.Request) {
 	geo := geoData(add)
 	isIPv6 := strings.Contains(add, ":")
 	isTor := isTorExit(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor, false}
 	w.Header().Set("Content-Type", "application/xml")
 	templateXML.Execute(w, resp)
 }
@@ -481,7 +482,7 @@ func cleanHandle(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	isTor := isTorExit(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor, false}
 	templateClean.Execute(w, resp)
 }
 
@@ -491,9 +492,13 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	hostname := reverseDNS(add)
 	geo := geoData(add)
 	isTor := isTorExit(add)
-	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor}
+	myipwtf := false
+	if (r.Host == "myip.wtf") {
+		myipwtf = true
+	}
+	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor, myipwtf}
 	if r.TLS == nil {
-		if (r.Host == "myip.wtf") {
+		if (myipwtf) {
 			http.Redirect(w, r, "https://myip.wtf/", 301)
 		} else {
 			http.Redirect(w, r, "https://wtfismyip.com/", 301)
