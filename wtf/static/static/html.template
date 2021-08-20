@@ -59,7 +59,8 @@ a:link,a:visited,#tor{color:#f30}
       <script type="text/javascript" src="https://ipv4.wtfismyip.com/js"></script><br>
       <p>
       <center>
-      <H3><a href="http://ipv4.wtfismyip.com">WTF is my IPv4 address!?</a></H3>
+{{if not .Myipwtf}}<H3><a href="https://ipv4.wtfismyip.com">WTF is my IPv4 address!?</a></H3>
+{{else}}<H3><a href="https://ipv4.myip.wtf">WTF is my IPv4 address!?</a></H3>{{end}}
 {{else}}<center>
             <p>
             <h2>Geographic location of your fucking IP address:</h2>
