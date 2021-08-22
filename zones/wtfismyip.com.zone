@@ -1,51 +1,58 @@
-@	600	IN	A	54.39.106.25
-@	600	IN	A	54.39.106.25
-@	600	IN	A	95.217.228.176
-@	600	IN	AAAA	2607:5300:203:3c19::2
-@	600	IN	AAAA	2a01:4f9:4b:4c8f::2
-@	86400	IN	MX	5	alt1.aspmx.l.google.com.
-@	86400	IN	MX	5	alt2.aspmx.l.google.com.
-@	86400	IN	MX	1	aspmx.l.google.com.
-@	86400	IN	MX	10	aspmx2.googlemail.com.
-@	86400	IN	MX	10	aspmx3.googlemail.com.
-@	86400	IN	NS	gns21.cloudns.net.
-@	86400	IN	NS	gns22.cloudns.net.
-@	86400	IN	NS	gns23.cloudns.net.
-@	86400	IN	NS	gns24.cloudns.net.
+@	60	IN	A	212.102.58.211
+@	60	IN	A	212.102.58.211
+@	60	IN	A	51.79.249.161
+@	60	IN	A	51.79.249.161
+@	60	IN	A	95.217.228.176
+@	60	IN	AAAA	2402:1f00:8000:800::1044
+@	60	IN	AAAA	2402:1f00:8000:800::1044
+@	60	IN	AAAA	2a01:4f9:4b:4c8f::2
+@	60	IN	AAAA	2a02:6ea0:c60b::1234
+@	60	IN	AAAA	2a02:6ea0:c60b::1234
+@	3600	IN	MX	10	wtfismyip-com.mail.protection.outlook.com.
+@	21600	IN	NS	gns21.cloudns.net.
+@	21600	IN	NS	gns22.cloudns.net.
+@	21600	IN	NS	gns23.cloudns.net.
+@	21600	IN	NS	gns24.cloudns.net.
 @	86400	IN	TXT	"brave-ledger-verification=6fb36367c1fad300eff4d5658c2b9abac40380572dd8682d1a7c78acd6637c6c"
 @	86400	IN	TXT	"google-site-verification=AXXKfrBR2-NApGVBYUwYtbJlQDctcVCpCU0KcM5Yoj0"
-@	86400	IN	TXT	"v=spf1 include:_spf.google.com -all"
+@	300	IN	TXT	"MS=ms86100777"
+@	86400	IN	TXT	"v=spf1 include:spf.protection.outlook.com -all"
 ca1	86400	IN	A	54.39.106.25
 ca1	86400	IN	AAAA	2607:5300:203:3c19::2
 eu1	86400	IN	A	95.217.228.176
 eu1	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
-ns1	86400	IN	A	69.195.159.158
-ns1	86400	IN	AAAA	2604:5800:0:4c:230:48ff:fe67:3d46
-ns2	86400	IN	A	84.22.103.96
-ns2	86400	IN	AAAA	2a02:2770:8:0:21a:4aff:fe05:bc72
-ns3	86400	IN	A	3.139.41.78
-ns3	86400	IN	AAAA	2600:1f16:d5d:f069:f35d:7ec3:4a42:11ee
-ns4	86400	IN	A	129.146.154.12
-us1	86400	IN	A	69.195.159.158
-us1	86400	IN	AAAA	2604:5800:0:4c:230:48ff:fe67:3d46
+ns1	3600	IN	A	35.236.96.228
+ns2	3600	IN	A	84.22.103.96
+ns2	3600	IN	AAAA	2a02:2770:8:0:21a:4aff:fe05:bc72
+ns3	3600	IN	A	3.139.41.78
+ns3	3600	IN	AAAA	2600:1f16:d5d:f069:f35d:7ec3:4a42:11ee
+ns4	3600	IN	A	129.146.154.12
+us1	3600	IN	A	212.102.58.211
+us1	3600	IN	AAAA	2a02:6ea0:c60b::1234
+us2	3600	IN	A	207.231.106.130
+us2	3600	IN	AAAA	2606:cc0:10:415:f24d:a2ff:fe74:3eea
 www	86400	IN	CNAME	@.
 xml	86400	IN	CNAME	@.
-ipv4	600	IN	A	54.39.106.25
-ipv4	600	IN	A	95.217.228.176
+ipv4	60	IN	A	212.102.58.211
+ipv4	60	IN	A	95.217.228.176
 ipv5	86400	IN	CNAME	@.
-ipv6	600	IN	AAAA	2607:5300:203:3c19::2
-ipv6	600	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6	60	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6	60	IN	AAAA	2a02:6ea0:c60b::1234
 json	86400	IN	CNAME	@.
 stun	86400	IN	CNAME	@.
 text	86400	IN	CNAME	@.
-static	86400	IN	A	84.22.103.96
-static	86400	IN	AAAA	2a02:2770:8:0:21a:4aff:fe05:bc72
+static	600	IN	A	84.22.103.96
+static	600	IN	AAAA	2a02:2770:8:0:21a:4aff:fe05:bc72
 _dmarc	86400	IN	TXT	"v=DMARC1; p=reject; rua=mailto:3njwtold@ag.dmarcian.com,mailto:re+sc3wmc0dtvy@dmarc.postmarkapp.com"
-ipv6-ca1	86400	IN	AAAA	2607:5300:203:3c19::2
-ipv6-eu1	86400	IN	AAAA	2a01:4f9:4b:4c8f::2
-ipv6-us1	86400	IN	AAAA	2604:5800:0:4c:230:48ff:fe67:3d46
+ipv6-ap1	3600	IN	AAAA	2402:1f00:8000:800::1044
+ipv6-ca1	3600	IN	AAAA	2607:5300:203:3c19::2
+ipv6-eu1	3600	IN	AAAA	2a01:4f9:4b:4c8f::2
+ipv6-us1	3600	IN	AAAA	2a02:6ea0:c60b::1234
+ipv6-us2	3600	IN	AAAA	2606:cc0:10:415:f24d:a2ff:fe74:3eea
+autodiscover	3600	IN	CNAME	autodiscover.outlook.com.
 rw2rj4vi65ys	86400	IN	CNAME	gv-dakcr3gkqyizxuc23ggurzana7tpf57pb4tfubkamprxjqnnetwq.domainverify.googlehosted.com.
-_acme-challenge	86400	IN	TXT	"-ch7KNEcTitlEjvEE8116zyLspA9SjEyQKqpw0SbDJA"
+enterpriseenrollment	3600	IN	CNAME	enterpriseenrollment.manage.microsoft.com.
+enterpriseregistration	3600	IN	CNAME	enterpriseregistration.windows.net.
 google708319f94cd67401	86400	IN	CNAME	@.
 ipv4.xml	86400	IN	CNAME	ipv4.wtfismyip.com.
 ipv6.xml	86400	IN	CNAME	ipv6.wtfismyip.com.
@@ -61,4 +68,7 @@ ipv4.text	86400	IN	CNAME	ipv4.wtfismyip.com.
 ipv6.text	86400	IN	CNAME	ipv6.wtfismyip.com.
 _stun._udp	3600	IN	SRV	10	100	3478	stun.wtfismyip.com.
 default._bimi	86400	IN	TXT	"v=BIMI1; l=https://static.wtfismyip.com/evilshit.svg; a=self;"
+fm1._domainkey	3600	IN	CNAME	fm1.wtfismyip.com.dkim.fmhosted.com.
+fm2._domainkey	3600	IN	CNAME	fm2.wtfismyip.com.dkim.fmhosted.com.
+fm3._domainkey	3600	IN	CNAME	fm3.wtfismyip.com.dkim.fmhosted.com.
 omgwtfbbq._domainkey	86400	IN	TXT	"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDEPl3woETdtcdbrvrU0u9ey1Ec+AUDyrHRPUAAfGjtZRtXOwRRUb8W51t2bu/YSTVUz0li6rfbAnBPuobn9EFlEEUe4UkAdM3kHkF8/mU2fnEo/TWbe88+0AXeCeWpkYZyqO9rHQFrwwAiYn0zMP5E/yDRrVDdv5BMFAsvNcch9wIDAQAB"
