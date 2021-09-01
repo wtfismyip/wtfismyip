@@ -513,7 +513,7 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("X-OMGWTF", "BBQ")
 		w.Header().Set("X-XSS-Protection", "1; mode=block")
 		w.Header().Set("X-Content-Type-Options", "nosniff")
-		w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com; script-src ipv4.wtfismyip.com wtfismyip.com; style-src 'unsafe-inline'")
+		w.Header().Set("Content-Security-Policy", "default-src 'none'; img-src wtfismyip.com myip.wtf; script-src ipv4.wtfismyip.com wtfismyip.com myip.wtf ipv4.myip.wtf; style-src 'unsafe-inline'")
 		w.Header().Set("X-DNS-Prefetch-Control", "off")
 		w.Header().Set("Referrer-Policy", "no-referrer")
 		w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
