@@ -143,6 +143,7 @@ func main() {
 	r.HandleFunc("/js2", js2Handle)
 	r.HandleFunc("/js2clean", js2cleanHandle)
 	r.HandleFunc("/clean", cleanHandle)
+	r.HandleFunc("/church", cleanHandle)
 	r.HandleFunc("/traffic", trafficHandle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
