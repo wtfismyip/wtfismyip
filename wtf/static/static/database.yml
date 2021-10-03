@@ -1,0 +1,6 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  username: root
+  password: Trololololo!!!!
+  host: 127.666.666.666
