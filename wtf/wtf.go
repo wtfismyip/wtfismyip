@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+	"os"
 
 	"github.com/caddyserver/certmagic"
 	"github.com/go-redis/redis/v8"
@@ -22,6 +23,7 @@ import (
 	middlewarestd "github.com/slok/go-http-metrics/middleware/std"
 )
 
+var xffMode bool
 var cityReader *geoip2.Reader
 var orgReader *geoip2.Reader
 var templateHTML *template.Template
@@ -52,6 +54,14 @@ var ctx = context.Background()
 var rdb *redis.Client
 
 func main() {
+
+	xffMode = false
+
+	if len(os.Args) == 2 {
+		if(os.Args[1] == "--xff") {
+			xffMode = true
+		}
+	}
 	var err error
 
 	rdb = redis.NewClient(&redis.Options{
@@ -542,11 +552,16 @@ func trafficHandle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getAddress(r *http.Request) string {
-	ip, _, err := net.SplitHostPort(r.RemoteAddr)
-	if err != nil {
-		return "0.0.0.0"
+	if (xffMode) {
+		ip := r.Header.Get("X-Forwarded-For")
+		return(ip)
+	} else {
+		ip, _, err := net.SplitHostPort(r.RemoteAddr)
+		if err != nil {
+			return "0.0.0.0"
+		}
+		return(ip)
 	}
-	return ip
 }
 
 func isTorExit(ip string) bool {
