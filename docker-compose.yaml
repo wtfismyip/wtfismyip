@@ -10,7 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:1000d"
+            image: "gcr.io/omgwtfbbq/unbound:1000e"
             runtime: runsc-kvm
             mem_limit: 4g
             networks:
@@ -21,7 +21,7 @@ services:
             restart: unless-stopped
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:ssl35"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2.0.5"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -32,7 +32,7 @@ services:
               - "443:10443"
     stun:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/stun:1000b"
+            image: "gcr.io/omgwtfbbq/stun:1000c"
             runtime: runsc-kvm
             mem_limit: 256m
             networks:
@@ -42,7 +42,7 @@ services:
                     - "3478:3478/udp"
     redis:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/redis:1000a"
+            image: "gcr.io/omgwtfbbq/redis:1000b"
             runtime: runsc-kvm
             mem_limit: 256m
             networks:
