@@ -3,15 +3,15 @@ package main
 import (
 	"context"
 	"fmt"
-	"text/template"
 	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
+	"os"
 	"path/filepath"
 	"strings"
+	"text/template"
 	"time"
-	"os"
 
 	"github.com/caddyserver/certmagic"
 	"github.com/go-redis/redis/v8"
@@ -46,7 +46,7 @@ type wtfResponse struct {
 	ISP         string
 	CountryCode string
 	Tor         bool
-	Myipwtf	    bool
+	Myipwtf     bool
 }
 
 var ctx = context.Background()
@@ -58,16 +58,16 @@ func main() {
 	xffMode = false
 
 	if len(os.Args) == 2 {
-		if(os.Args[1] == "--xff") {
+		if os.Args[1] == "--xff" {
 			xffMode = true
 		}
 	}
 	var err error
 
 	rdb = redis.NewClient(&redis.Options{
-		Addr:	"172.19.1.70:6379",
+		Addr:     "172.19.1.70:6379",
 		Password: "",
-		DB: 0})
+		DB:       0})
 
 	cityReader, err = geoip2.Open("/usr/local/wtf/GeoIP/GeoIP2-City.mmdb")
 	if err != nil {
@@ -178,7 +178,7 @@ func main() {
 
 	config := certmagic.NewDefault()
 	tags := []string{}
-	config.CacheUnmanagedCertificatePEMFile("/docker/certs/wtf.cert.pem", "/docker/certs/wtf.key.pem",tags)
+	config.CacheUnmanagedCertificatePEMFile("/docker/certs/wtf.cert.pem", "/docker/certs/wtf.key.pem", tags)
 	tlsConfig := config.TLSConfig()
 
 	srvHTTPS := &http.Server{
@@ -199,7 +199,7 @@ func main() {
 	}
 
 	go srvHTTP.ListenAndServe()
-	srvHTTPS.ListenAndServeTLS("","")
+	srvHTTPS.ListenAndServeTLS("", "")
 }
 
 func geoData(ip string) geoText {
@@ -223,7 +223,7 @@ func geoData(ip string) geoText {
 
 	city, isCityPresent := record.City.Names["en"]
 	country, _ := record.Country.Names["en"]
-        country = strings.Replace(country, "Palestinian Territory", "Occupied Palestinian Territory", 1)
+	country = strings.Replace(country, "Palestinian Territory", "Occupied Palestinian Territory", 1)
 	code := record.Country.IsoCode
 
 	if isCityPresent {
@@ -289,7 +289,6 @@ func js2Handle(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(contents)
 }
-
 
 func js2cleanHandle(w http.ResponseWriter, r *http.Request) {
 	contents, err := ioutil.ReadFile("/usr/local/wtf/static/js2clean")
@@ -371,7 +370,7 @@ func metricsHandle(w http.ResponseWriter, r *http.Request) {
 	allowlistAddr, _ := rdb.Get(ctx, "allowlistAddr").Result()
 	add := getAddress(r)
 	if add == allowlistAddr {
-		promhttp.Handler().ServeHTTP(w,r)
+		promhttp.Handler().ServeHTTP(w, r)
 	} else {
 		w.WriteHeader(http.StatusForbidden)
 		w.Write([]byte("sorry dude"))
@@ -400,7 +399,6 @@ func text(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, response)
 }
 
-
 func textisp(w http.ResponseWriter, r *http.Request) {
 	add := getAddress(r)
 	response := geoData(add).org + "\n"
@@ -421,7 +419,7 @@ func textgeo(w http.ResponseWriter, r *http.Request) {
 
 func textcountry(w http.ResponseWriter, r *http.Request) {
 	add := getAddress(r)
-	response := geoData(add).countryCode+ "\n"
+	response := geoData(add).countryCode + "\n"
 	w.Header().Set("Content-Type", "text/plain")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET")
@@ -460,20 +458,20 @@ func jsHandle(w http.ResponseWriter, r *http.Request) {
 }
 
 func jscleanHandle(w http.ResponseWriter, r *http.Request) {
-        add := getAddress(r)
-        hostname := reverseDNS(add)
-        geo := geoData(add)
-        isIPv6 := strings.Contains(add, ":")
-        if isIPv6 && r.Host == "ipv4.wtfismyip.com" {
-                w.WriteHeader(http.StatusMisdirectedRequest)
-                w.Write([]byte("Fucking protocol error"))
-        } else {
-                response := "ip='" + add + "';\n"
-                response += "hostname='" + hostname + "';\n"
-                response += "geolocation='" + geo.details + "';\n"
-                response += "document.write('<center><p><h2>Your IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
-                fmt.Fprintf(w, response)
-        }
+	add := getAddress(r)
+	hostname := reverseDNS(add)
+	geo := geoData(add)
+	isIPv6 := strings.Contains(add, ":")
+	if isIPv6 && r.Host == "ipv4.wtfismyip.com" {
+		w.WriteHeader(http.StatusMisdirectedRequest)
+		w.Write([]byte("Fucking protocol error"))
+	} else {
+		response := "ip='" + add + "';\n"
+		response += "hostname='" + hostname + "';\n"
+		response += "geolocation='" + geo.details + "';\n"
+		response += "document.write('<center><p><h2>Your IPv4 address is:</h2></center>');document.write('<center><p>' + ip + '</center>');document.write('<center><p><h2>Your IPv4 hostname is:</h2></center>');document.write('<center><p>' + hostname + '</center>');document.write('<center><p><h2>Geographic location of your IPv4 address:</h2></center>');document.write('<center><p>' + geolocation + '</center>');"
+		fmt.Fprintf(w, response)
+	}
 }
 
 func xml(w http.ResponseWriter, r *http.Request) {
@@ -504,12 +502,12 @@ func wtfHandle(w http.ResponseWriter, r *http.Request) {
 	geo := geoData(add)
 	isTor := isTorExit(add)
 	myipwtf := false
-	if (r.Host == "myip.wtf") {
+	if r.Host == "myip.wtf" {
 		myipwtf = true
 	}
 	resp := wtfResponse{isIPv6, add, hostname, geo.details, geo.org, geo.countryCode, isTor, myipwtf}
 	if r.TLS == nil {
-		if (myipwtf) {
+		if myipwtf {
 			http.Redirect(w, r, "https://myip.wtf/", 301)
 		} else {
 			http.Redirect(w, r, "https://wtfismyip.com/", 301)
@@ -544,7 +542,7 @@ func headers(w http.ResponseWriter, r *http.Request) {
 
 func ipv5Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-        fmt.Fprintf(w, "No such fucking protocol")
+	fmt.Fprintf(w, "No such fucking protocol")
 }
 
 func trafficHandle(w http.ResponseWriter, r *http.Request) {
@@ -552,15 +550,15 @@ func trafficHandle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getAddress(r *http.Request) string {
-	if (xffMode) {
+	if xffMode {
 		ip := r.Header.Get("X-Forwarded-For")
-		return(ip)
+		return (ip)
 	} else {
 		ip, _, err := net.SplitHostPort(r.RemoteAddr)
 		if err != nil {
 			return "0.0.0.0"
 		}
-		return(ip)
+		return (ip)
 	}
 }
 
@@ -570,6 +568,6 @@ func isTorExit(ip string) bool {
 	if val == "exit" {
 		return true
 	} else {
-	return false
+		return false
 	}
 }
