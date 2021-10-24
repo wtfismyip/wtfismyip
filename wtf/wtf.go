@@ -551,16 +551,16 @@ func trafficHandle(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "<html><head><img src=\"https://static.wtfismyip.com/omgwtfbbq.png\" style=\"width: 100%; object-fit: contain\"></head></html>")
 }
 
-func getAddress(r *http.Request) string {
+func getAddress(r *http.Request) (ip string) {
 	if xffMode {
-		ip := r.Header.Get("X-Forwarded-For")
-		return ip
+		ip = r.Header.Get("X-Forwarded-For")
+		return
 	}
 	ip, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err != nil {
 		return "0.0.0.0"
 	}
-	return ip
+	return
 }
 
 func isTorExit(ip string) bool {
