@@ -249,7 +249,7 @@ func geoData(ip string) (location geoText) {
 	return location
 }
 
-func reverseDNS(ip string) string {
+func reverseDNS(ip string) (response string) {
 	omfg := make(chan string, 1)
 	go func() {
 		dnsName, err := net.LookupAddr(ip)
@@ -265,8 +265,8 @@ func reverseDNS(ip string) string {
 	}()
 
 	select {
-	case res := <-omfg:
-		return res
+	case response = <-omfg:
+		return response
 	case <-time.After(2 * time.Second):
 		return ip
 	}
