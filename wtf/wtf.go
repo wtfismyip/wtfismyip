@@ -36,6 +36,8 @@ type geoText struct {
 	details     string
 	countryCode string
 	city        string
+	country     string
+	state       string
 }
 
 type wtfResponse struct {
@@ -202,9 +204,8 @@ func main() {
 	srvHTTPS.ListenAndServeTLS("", "")
 }
 
-func geoData(ip string) geoText {
-	var details string
-	var state string
+func geoData(ip string) (location geoText) {
+	var isCityPresent bool
 
 	address := net.ParseIP(ip)
 	isp, err := orgReader.ISP(address)
@@ -218,33 +219,34 @@ func geoData(ip string) geoText {
 	}
 
 	if len(record.Subdivisions) > 0 {
-		state = record.Subdivisions[0].IsoCode
+		location.state = record.Subdivisions[0].IsoCode
 	}
 
-	city, isCityPresent := record.City.Names["en"]
-	country, _ := record.Country.Names["en"]
-	country = strings.Replace(country, "Palestinian Territory", "Occupied Palestinian Territory", 1)
-	code := record.Country.IsoCode
+	location.city, isCityPresent = record.City.Names["en"]
+	location.country, _ = record.Country.Names["en"]
+	location.country = strings.Replace(location.country, "Palestinian Territory", "Occupied Palestinian Territory", 1)
+	location.countryCode = record.Country.IsoCode
 
 	if isCityPresent {
-		if len(state) > 0 {
-			details = city + ", " + state + ", " + country
+		if len(location.state) > 0 {
+			location.details = location.city + ", " + location.state + ", " + location.country
 		} else {
-			details = city + ", " + country
+			location.details = location.city + ", " + location.country
 		}
 	} else {
-		if len(country) > 0 {
-			details = country
+		if len(location.country) > 0 {
+			location.details = location.country
 		} else {
-			details = "Unknown"
+			location.details = "Unknown"
 		}
 	}
 
-	if len(code) == 0 {
-		code = "Unknown"
+	if len(location.countryCode) == 0 {
+		location.countryCode = "Unknown"
 	}
 
-	return geoText{isp.ISP, details, code, city}
+	location.org = isp.ISP
+	return location
 }
 
 func reverseDNS(ip string) string {
