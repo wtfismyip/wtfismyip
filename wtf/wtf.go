@@ -264,9 +264,9 @@ func reverseDNS(ip string) string {
 
 	select {
 	case res := <-omfg:
-		return (res)
+		return res
 	case <-time.After(2 * time.Second):
-		return (ip)
+		return ip
 	}
 }
 
@@ -552,14 +552,13 @@ func trafficHandle(w http.ResponseWriter, r *http.Request) {
 func getAddress(r *http.Request) string {
 	if xffMode {
 		ip := r.Header.Get("X-Forwarded-For")
-		return (ip)
-	} else {
-		ip, _, err := net.SplitHostPort(r.RemoteAddr)
-		if err != nil {
-			return "0.0.0.0"
-		}
-		return (ip)
+		return ip
 	}
+	ip, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		return "0.0.0.0"
+	}
+	return ip
 }
 
 func isTorExit(ip string) bool {
@@ -567,7 +566,6 @@ func isTorExit(ip string) bool {
 
 	if val == "exit" {
 		return true
-	} else {
-		return false
 	}
+	return false
 }
