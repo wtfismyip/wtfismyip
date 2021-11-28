@@ -157,6 +157,7 @@ func main() {
 	r.HandleFunc("/clean", cleanHandle)
 	r.HandleFunc("/church", cleanHandle)
 	r.HandleFunc("/traffic", trafficHandle)
+	r.HandleFunc("/omgwtfbbq.png", trafficPngHandle)
 	r.HandleFunc("/", wtfHandle).Methods("GET")
 	r.HandleFunc("/", miscHandle).Methods("POST")
 	r.HandleFunc("/", miscHandle).Methods("PUT")
@@ -548,7 +549,17 @@ func ipv5Handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func trafficHandle(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<html><head><img src=\"https://static.wtfismyip.com/omgwtfbbq.png\" style=\"width: 100%; object-fit: contain\"></head></html>")
+	fmt.Fprintf(w, "<html><head><img src=\"/omgwtfbbq.png\" style=\"width: 100%; object-fit: contain\"></head></html>")
+}
+
+func trafficPngHandle(w http.ResponseWriter, r *http.Request) {
+	content, err := ioutil.ReadFile("/usr/local/tmp/omgwtfbbq.png")
+	if err != nil {
+		w.Header().Set("Content-Type", "text/plain")
+		fmt.Fprintf(w, "Fucking Error: %s", err)
+	}
+	w.Header().Set("Content-Type", "image/png")
+	w.Write([]byte(content))
 }
 
 func getAddress(r *http.Request) (ip string) {
