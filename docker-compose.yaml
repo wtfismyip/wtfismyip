@@ -2,7 +2,7 @@ version: '2.3'
 services:
     ipv6nat:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/ipv6nat:2"
+            image: "us-docker.pkg.dev/omgwtfbbq/gcr.io/ipv6nat:2"
             privileged: true
             network_mode: "host"
             volumes:
@@ -10,7 +10,7 @@ services:
                     - "/lib/modules:/lib/modules:ro"
     unbound:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/unbound:1000e"
+            image: "us-docker.pkg.dev/omgwtfbbq/gcr.io/unbound:1000e"
             runtime: runsc-kvm
             mem_limit: 4g
             networks:
@@ -22,7 +22,7 @@ services:
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
                     - "/usr/local/tmp:/usr/local/tmp"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2.0.16"
+            image: "us-docker.pkg.dev/omgwtfbbq/gcr.io/wtf-standalone:2.0.17"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -34,7 +34,7 @@ services:
 
     stun:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/stun:1000c"
+            image: "us-docker.pkg.dev/omgwtfbbq/gcr.io/stun:1000c"
             runtime: runsc-kvm
             mem_limit: 256m
             networks:
@@ -44,7 +44,7 @@ services:
                     - "3478:3478/udp"
     redis:
             restart: unless-stopped
-            image: "gcr.io/omgwtfbbq/redis:1000b"
+            image: "us-docker.pkg.dev/omgwtfbbq/gcr.io/redis:1000b"
             runtime: runsc-kvm
             mem_limit: 256m
             networks:
