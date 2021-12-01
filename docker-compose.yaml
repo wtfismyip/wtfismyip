@@ -22,7 +22,7 @@ services:
             volumes:
                     - "/docker/resolv.conf:/etc/resolv.conf"
                     - "/usr/local/tmp:/usr/local/tmp"
-            image: "gcr.io/omgwtfbbq/wtf-standalone:2.0.14"
+            image: "gcr.io/omgwtfbbq/wtf-standalone:2.0.16"
             networks:
                     omgwtfbbq:
                             ipv4_address: 172.19.1.200
@@ -31,6 +31,7 @@ services:
             ports:
               - "80:10080"
               - "443:10443"
+
     stun:
             restart: unless-stopped
             image: "gcr.io/omgwtfbbq/stun:1000c"
