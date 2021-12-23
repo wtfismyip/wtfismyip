@@ -74,7 +74,7 @@ a:link,a:visited,#tor{color:#f30}
       <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
          <center>
             <p>
-            <h2>Your fucking ISP:</h2>
+            <h2>Your fucking Shitty ISP:</h2>
          </center>
          <center>
             <p>{{.ISP}}
@@ -93,7 +93,7 @@ a:link,a:visited,#tor{color:#f30}
       <h2>Resources</h2>
       <ul>
          <li>
-            <p class="blah"><a href="/why">Why wtfismyip.com?</a></p>
+            <p class="blah"><a href="/why">Why Fucking Use wtfismyip.com?</a></p>
          </li>
          <li>
             <p class="blah"><a href="/automation">Our Fucking Automation Policy</a></p>
