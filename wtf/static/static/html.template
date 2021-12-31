@@ -74,7 +74,7 @@ a:link,a:visited,#tor{color:#f30}
       <script type="text/javascript" src="https://wtfismyip.com/js2"></script>
          <center>
             <p>
-            <h2>Your fucking Shitty ISP:</h2>
+            <h2>Your fucking ISP:</h2>
          </center>
          <center>
             <p>{{.ISP}}
