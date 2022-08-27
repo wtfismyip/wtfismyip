@@ -1,1 +1,1 @@
-Now at https://gitlab.com/wtfismyip/wtfismyip
+Now at https://gitlab.wtfismyip.com/wtfismyip/wtfismyip, motherfuckers!
